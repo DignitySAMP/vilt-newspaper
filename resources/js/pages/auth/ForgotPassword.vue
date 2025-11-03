@@ -18,7 +18,7 @@
                 :disabled="form.processing"
             />
 
-            <div class="flex justify-between text-gray-600 text-sm">
+            <div class="flex flex-wrap gap-2 py-4 justify-between text-gray-600 text-sm">
                 <Link :href="route('login')" class="hover:underline" view-transition>
                     Remember your credentials?
                 </Link>

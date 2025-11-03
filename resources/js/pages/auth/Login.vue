@@ -30,7 +30,7 @@
                 :disabled="form.processing"
             />
 
-            <div class="flex justify-between text-gray-600 text-sm">
+            <div class="py-4 flex flex-wrap  gap-2 justify-between text-gray-600 text-sm">
                 <Link :href="route('register')" class="hover:underline" view-transition>
                     Don't have an account yet?
                 </Link>
