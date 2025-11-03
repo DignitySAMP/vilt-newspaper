@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function (): mixed {
-    return Inertia::render('home/Index');
+    return Inertia::render('home/Index', [
+        'articles' => Article::with(['author', 'category'])->get()
+    ]);
 })->name('home');
 
 

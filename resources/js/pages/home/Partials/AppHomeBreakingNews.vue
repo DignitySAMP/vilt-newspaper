@@ -9,12 +9,12 @@
         <div class="flex items-center gap-4 text-sm pb-4 border-b border-gray-300">
             <div class="flex items-center gap-1">
                 <span class="font-semibold">By</span> 
-                <span>{{ props.article.author }}</span>
+                <span>{{ props.article.author.name }}</span>
             </div>
             <AppSeparator/>
-            <span>{{ props.article.date }}</span>
+            <span>{{ new Date(props.article.created_at).toDateString() }}</span>
             <AppSeparator/>
-            <span>{{ props.article.readTime }} read</span>
+            <span>{{ props.article.read_time }} min read</span>
         </div>
         <img 
             :src="props.article.image" 
