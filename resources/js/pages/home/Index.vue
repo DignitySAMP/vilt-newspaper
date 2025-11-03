@@ -1,8 +1,9 @@
 <template>
    
    <AppLayout>
-    <AppHomeBreakingNews :article="tmpArticles[0]"/>
-    <AppHomeHighlights :articles="tmpArticles.slice(1,3)"/>
+    <AppHomeBreakingNews :article="tmpArticles[0]" />
+    <AppHomeHighlights :articles="tmpArticles.slice(1,3)" />
+    <AppHomeSecondaryHighlights :articles="tmpArticles.slice(3, 6)" />
    </AppLayout>
 </template>
 <script setup lang="js">
@@ -10,6 +11,7 @@
     import AppLayout from '@/layouts/AppLayout.vue';
     import AppHomeBreakingNews from '@/pages/home/Partials/AppHomeBreakingNews.vue';
     import AppHomeHighlights from '@/pages/home/Partials/AppHomeHighlights.vue';
+    import AppHomeSecondaryHighlights from '@/pages/home/Partials/AppHomeSecondaryHighlights.vue';
 
   	const tmpArticles = ref([ // placeholder
         {
