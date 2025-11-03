@@ -7,9 +7,9 @@
                 </span>
             </div>
             <div class="text-xs text-gray-600 flex flex-wrap gap-2 justify-center">
-                <Link href="#" class="hover:underline">Privacy Policy</Link> 
+                <Link href="#" class="hover:underline" view-transition>Privacy Policy</Link> 
                 <span>|</span>
-                <Link href="#" class="hover:underline">Terms of Service</Link> 
+                <Link href="#" class="hover:underline" view-transition>Terms of Service</Link> 
             </div>
         </div>
     </footer>
