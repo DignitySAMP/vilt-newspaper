@@ -25,8 +25,8 @@ Route::get('/user/two-faction-setup', function() {
     ]);
 })->middleware(['auth', 'verified', 'password.confirm'])->name('two-factor.setup');
 
-Route::get('article/{article}', [ArticleController::class, 'show'])->name('article.show');
 Route::resource('article', ArticleController::class)->except(['show'])->middleware(['auth', 'verified', 'password.confirm']);
+Route::get('article/{article}', [ArticleController::class, 'show'])->name('article.show');
 
-Route::get('category/{category}', [CategoryController::class, 'show'])->name('category.show');
 Route::resource('category', CategoryController::class)->except(['show'])->middleware(['auth', 'verified', 'password.confirm']);
+Route::get('category/{category}', [CategoryController::class, 'show'])->name('category.show');

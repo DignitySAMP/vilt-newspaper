@@ -87,7 +87,7 @@
         const classes = [];
         
         classes.push("w-full py-2 px-4 appearance-none border-3 outline-0");
-        classes.push(`transition duration-300 ${!props.disabled ? 'cursor-pointer' : 'cursor-not-allowed'}`); 
+        classes.push(`transition duration-300 ${!props.disabled ? '' : 'cursor-not-allowed'}`); 
 
         if (props.disabled) {
             classes.push("bg-neutral-300 border-neutral-500 placeholder:text-neutral-600 text-neutral-600"); // disabled

@@ -5,13 +5,14 @@
         :id="computed_id"
         :disabled="props.disabled"
         class="bg-black text-white px-6 py-2 font-bold hover:bg-gray-800 transition-colors w-fit flex gap-2 justify-center"
+        :class="props.reverse ? 'flex-row-reverse' : 'flex-row'"
     >
         <span>
             <slot />
         </span>
-        <span>
-            →
-        </span>
+
+        <span v-if="props.reverse">←</span>
+        <span v-else-if="!props.reverse">→</span>
     </button>
 </template>
 <script setup lang="js">
@@ -34,6 +35,10 @@ const props = defineProps({
     disabled: {
         type: Boolean,
         default: false,
+    },
+    reverse: {
+        type: Boolean,
+        default: false
     }
 })
 const computed_id = computed(() => props.id ?? props.name)
