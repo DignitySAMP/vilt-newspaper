@@ -4,6 +4,25 @@
         <AppHomeHighlights :articles="tmpArticles.slice(1,3)" />
         <AppHomeSecondaryHighlights :articles="tmpArticles.slice(3, 6)" />
         <AppHomeReadMore :articles="tmpArticles.slice(6)"/>
+
+        <div class="border-t-4 border-black pt-6 flex justify-center items-center gap-2">
+            <button class="bg-black text-white px-4 py-2 font-bold transition duration-300 opacity-40 cursor-not-allowed">
+                ← PREV
+            </button>
+            <div class="flex gap-2">
+                <button 
+                    v-for="page, index in 16" :key="page"
+                    :class="index === 0 ? 'bg-black text-white' : 'bg-white text-black border-2 border-black hover:bg-neutral-200 cursor-pointer'"
+                    class="w-10 h-10 font-bold transition duration-300"
+                >
+                    {{ page }}
+                </button>
+            </div>
+            <button class="bg-black text-white px-4 py-2 font-bold transition duration-300 hover:bg-neutral-700 cursor-pointer">
+                NEXT →
+            </button>
+        </div>
+
     </AppLayout>
 </template>
 <script setup lang="js">
