@@ -69,7 +69,7 @@
 import { ref } from 'vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
-import AppGuestLayout from '@/layout/AppGuestLayout.vue';
+import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
 import AppButton from '@/components/AppButton.vue';
 import AppInput from '@/components/AppInput.vue';
 

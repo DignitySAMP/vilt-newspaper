@@ -1,12 +1,9 @@
 <template>
-    <AppHeader/>
-    <AppBody>
+   
+   <AppLayout>
         Hello World
-    </AppBody>
-    <AppFooter/>
+   </AppLayout>
 </template>
 <script setup lang="js">
-    import AppFooter from '@/pages/home/Partials/AppFooter.vue';
-    import AppHeader from '@/pages/home/Partials/AppHeader.vue';
-    import AppBody from '@/pages/home/Partials/AppBody.vue';
+    import AppLayout from '@/layouts/AppLayout.vue';
 </script>

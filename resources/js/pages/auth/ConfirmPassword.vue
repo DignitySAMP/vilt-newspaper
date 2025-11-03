@@ -28,7 +28,7 @@
     </AppGuestLayout>
 </template>
 <script setup lang="js">
-    import AppGuestLayout from '@/layout/AppGuestLayout.vue';
+    import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
     import { useForm } from '@inertiajs/vue3';
     import AppButton from '@/components/AppButton.vue';
     import AppInput from '@/components/AppInput.vue';

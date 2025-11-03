@@ -4,7 +4,7 @@
             <div class="text-2xl font-black uppercase">
                 {{ usePage().props.app.name }}
             </div>
-            <div class="text-xs text-gray-600 flex gap-2 justify-center">
+            <div class="text-xs text-gray-600 flex flex-wrap gap-2 justify-center">
                 <span>
                     © {{ new Date().getFullYear() }} {{ usePage().props.app.name }}. All rights reserved. 
                 </span>

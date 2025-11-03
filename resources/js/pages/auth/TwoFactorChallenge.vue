@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import AppGuestLayout from '@/layout/AppGuestLayout.vue'
+import AppGuestLayout from '@/layouts/AppGuestLayout.vue'
 import { ref } from 'vue'
 import { useForm } from '@inertiajs/vue3'
 

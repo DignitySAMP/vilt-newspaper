@@ -57,7 +57,7 @@
 <script setup lang="js">
 
 import { useForm, Link } from '@inertiajs/vue3';
-import AppGuestLayout from '@/layout/AppGuestLayout.vue';
+import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
 import AppButton from '@/components/AppButton.vue';
 import AppInput from '@/components/AppInput.vue';
 import AppCheckbox from '@/components/AppCheckbox.vue';

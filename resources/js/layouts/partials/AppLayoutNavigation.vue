@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex justify-center gap-8 text-sm font-semibold tracking-wide">
+    <nav class="flex flex-wrap justify-center gap-8 text-sm font-semibold tracking-wide">
       
         <Link
             v-for="item in navigation_items"

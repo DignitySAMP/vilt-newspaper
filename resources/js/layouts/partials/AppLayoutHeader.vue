@@ -16,14 +16,14 @@
                 </div>
             </div>
             
-            <AppNavigation/>
+            <AppLayoutNavigation/>
         </div>
     </header>
 </template>
 <script setup lang="js">
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/vue3';
-    import AppNavigation from '@/pages/home/Partials//AppNavigation.vue';
+    import AppLayoutNavigation from '@/layouts/partials/AppLayoutNavigation.vue';
 
     const blogPostCount = 47; // TODO: return count of 'editions'
 
