@@ -2,12 +2,15 @@
    
    <AppLayout>
     <AppHomeBreakingNews :article="tmpArticles[0]"/>
+    <AppHomeHighlights :articles="tmpArticles.slice(1,3)"/>
    </AppLayout>
 </template>
 <script setup lang="js">
     import { ref } from 'vue';
     import AppLayout from '@/layouts/AppLayout.vue';
     import AppHomeBreakingNews from '@/pages/home/Partials/AppHomeBreakingNews.vue';
+    import AppHomeHighlights from '@/pages/home/Partials/AppHomeHighlights.vue';
+
   	const tmpArticles = ref([ // placeholder
         {
             id: 1,
