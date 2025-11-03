@@ -10,12 +10,12 @@
 
             <img :src="article.image" alt="" class="w-full object-cover h-96 border-b-4 border-black"/>
 
-            <header class="w-full justify-between flex gap-4 items-center p-6 pb-0  text-gray-500">
+            <header class="w-full justify-between flex flex-wrap md:flex-nowrap gap-4 items-center p-6 pb-0  text-gray-500">
                 <div class="w-full flex gap-1">
                     <span>Written by</span>
                     <span>{{ article.author.name }}</span>
                 </div>
-                <div class="flex gap-2 w-full items-center justify-end">
+                <div class="flex gap-2 w-full items-center md:justify-end">
                     <span>{{ new Date(article.created_at).toDateString() }}</span>
                     <AppSeparator/>
                     <span>{{ article.category?.title ?? 'General'}}</span>

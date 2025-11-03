@@ -51,7 +51,7 @@
 
             <DeleteArticle v-if="showDeleteModal" :article="props.article" />
 
-            <div class="w-full flex justify-between">
+            <div class="w-full flex flex-col md:flex-row justify-between gap-4">
                 <Link :href="route('article.index')" view-transition>
                     <AppButton name="btn_update_article" type="button" :reverse="true">Back</AppButton>
                 </Link>

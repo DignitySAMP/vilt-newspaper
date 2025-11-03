@@ -15,7 +15,7 @@
         </div>
 
         <div class="flex flex-col gap-4">
-            <div v-for="article in articles" :key="article.id" class="flex justify-between border-4 border-black bg-white p-4">
+            <div v-for="article in articles" :key="article.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
                 <div class="flex flex-col gap-2">
                     <span class="font-semibold">
                         {{ article.title }}
@@ -25,14 +25,14 @@
                     </span>
                 </div>
 
-                <div class="flex  gap-2">
+                <div class="flex w-full md:w-fit gap-2">
 
-                    <Link :href="route('article.show', article.id)" class="h-fit w-fit" view-transition>
+                    <Link :href="route('article.show', article.id)" class="size-full md:size-fit" view-transition>
                         <AppButton name="btn_article_show" :reverse="true">
                             View
                         </AppButton>
                     </Link>
-                    <Link :href="route('article.edit', article.id)" class="h-fit w-fit" view-transition>
+                    <Link :href="route('article.edit', article.id)" class="size-full md:size-fit" view-transition>
                         <AppButton name="btn_article_edit">
                             Edit
                         </AppButton>

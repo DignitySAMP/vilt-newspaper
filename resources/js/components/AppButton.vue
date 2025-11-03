@@ -4,7 +4,7 @@
         :name="props.name"
         :id="computed_id"
         :disabled="props.disabled"
-        class="bg-black text-white px-6 py-2 font-bold hover:bg-gray-800 transition-colors w-fit flex gap-2 justify-center"
+        class="bg-black text-white px-6 py-2 font-bold hover:bg-gray-800 transition-colors w-full md:w-fit flex gap-2 justify-center"
         :class="props.reverse ? 'flex-row-reverse' : 'flex-row'"
     >
         <span>
