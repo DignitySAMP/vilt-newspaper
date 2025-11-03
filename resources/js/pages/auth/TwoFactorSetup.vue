@@ -7,41 +7,48 @@
                 You have enabled two factor authentication.
             </span>
 
-            <button
-
+            <AppButton
+                name="btn_disable_2fa"
                 @click="submitDisable"
-                class="flex w-full px-4 py-2 bg-red-600 text-white rounded hover:bg-red-500"
+                type="button"
             >
                 Disable 2FA
-            </button>
+            </AppButton>
         </div>
         <div v-else class="flex flex-col gap-4 text-gray-700">
 
-            <button
+            <AppButton
+                name="btn_enable_2fa"
                 @click="submitEnable"
-                class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-600 transition duration-300"
+                type="button"
                 :disabled="form.processing"
             >
                 Enable 2FA
-            </button>
+            </AppButton>
          
             <div v-if="qrCode" class="flex flex-col gap-2">
                 <span class="text-lg font-semibold">Scan the QR code</span>
                 <div v-html="qrCode"></div>
 
-                <div class="flex flex-col gap-2">
-                    <input type="text" name="code" id="code" v-model="form.code" placeholder="Code from your authenticator" autocomplete="new-password" class="border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-600"/>
-                    <span v-if="form.errors.code" v-html="form.errors.code" class="text-sm text-red-600" ></span>
-                </div>
+                <AppInput
+                    label="Authentication Code"
+                    name="code"
+                    placeholder="Code from your authenticator"
+                    type="text"
+                    v-model="form.code"
+                    :errors="form.errors.code"
+                    autocomplete="new-password"
+                    :disabled="form.processing"
+                />
 
-                <button
+                <AppButton
+                    name="btn_confirm_2fa"
                     type="button"
                     @click="submitConfirm"
                     :disabled="form.processing"
-                    class="px-4 py-2 w-full bg-gray-800 text-gray-50 rounded hover:bg-gray-600 transition duration-300 cursor-pointer focus:outline-4 outline-gray-600/50"
                 >
                     Confirm 2FA
-                </button>
+                </AppButton>
 
                 <span v-if="form.errors.confirmTwoFactorAuthentication" v-html="form.errors.confirmTwoFactorAuthentication.code" class="text-sm text-red-700"/>
             </div>
@@ -63,6 +70,8 @@ import { ref } from 'vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
 import AppGuestLayout from '@/layout/AppGuestLayout.vue';
+import AppButton from '@/components/AppButton.vue';
+import AppInput from '@/components/AppInput.vue';
 
 
 const form = useForm({

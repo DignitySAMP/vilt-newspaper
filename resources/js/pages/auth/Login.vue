@@ -42,6 +42,7 @@
 
 
             <AppButton
+                name="btn_login"
                 :disabled="form.processing"
                 type="submit"
                 @click="submit"
