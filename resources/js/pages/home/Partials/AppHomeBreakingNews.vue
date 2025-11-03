@@ -19,7 +19,7 @@
         <img 
             :src="props.article.image" 
             :alt="props.article.title" 
-            class="w-full h-96 object-cover border-2 border-black" 
+            class="w-full h-48 object-center md:h-96 md:object-cover border-2 border-black" 
         />
         <p class="text-lg leading-relaxed">
             {{ props.article.excerpt }}
