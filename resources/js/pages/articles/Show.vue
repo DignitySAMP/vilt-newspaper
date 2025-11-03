@@ -1,6 +1,6 @@
 <template>
     <AppLayout>
-        <Link :href="route('home')">
+        <Link :href="route('home')" view-transition>
             <AppButton :reverse="true" name="btn_home">
                 Home
             </AppButton>

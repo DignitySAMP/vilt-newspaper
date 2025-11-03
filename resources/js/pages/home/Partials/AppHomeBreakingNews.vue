@@ -1,4 +1,5 @@
 <template>
+
     <article class="border-4 border-black bg-white p-8 shadow-lg flex flex-col gap-4">
         <span class="text-xs font-bold tracking-widest">
             BREAKING NEWS
@@ -25,12 +26,15 @@
             {{ props.article.summary }}
         </p>
 
-        <AppButton name="btn_read_more">
-            Read Full Story
-        </AppButton>
+        <Link :href="route('article.show', props.article.id)" view-transition>
+            <AppButton name="btn_read_more">
+                Read Full Story
+            </AppButton>
+        </Link>
     </article>
 </template>
 <script setup lang="js">
+    import { Link } from '@inertiajs/vue3';
     import AppButton from '@/components/AppButton.vue' // TODO: Make AppButtonLink for viewing threads
     import AppSeparator from '@/components/AppSeparator.vue';
 

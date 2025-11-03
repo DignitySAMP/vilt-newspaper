@@ -1,5 +1,5 @@
 <template>
-    <Link :href="route('article.show', props.article.id)">
+    <Link :href="route('article.show', props.article.id)" view-transition>
              
         <div class="border-2 border-black bg-white shadow-md hover:shadow-xl transition-shadow">
             <img 

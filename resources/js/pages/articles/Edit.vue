@@ -39,6 +39,7 @@
             />
 
             <AppSelect
+                label="Choose article category"
                 name="select_category"
                 v-model="form.category"
                 :errors="form.errors.category"
@@ -51,7 +52,7 @@
             <DeleteArticle v-if="showDeleteModal" :article="props.article" />
 
             <div class="w-full flex justify-between">
-                <Link :href="route('article.index')">
+                <Link :href="route('article.index')" view-transition>
                     <AppButton name="btn_update_article" type="button" :reverse="true">Back</AppButton>
                 </Link>
 

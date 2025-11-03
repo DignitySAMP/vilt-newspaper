@@ -49,7 +49,7 @@
             />
 
             <div class="w-full flex justify-between">
-                <Link :href="route('article.index')">
+                <Link :href="route('article.index')" view-transition>
                     <AppButton name="btn_update_article" type="button" :reverse="true">Back</AppButton>
                 </Link>
 

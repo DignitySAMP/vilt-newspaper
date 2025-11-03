@@ -1,29 +1,31 @@
 <template>
-    <label :for="props.name" 
-        class="text-sm" 
-        :class="props.errors && !props.disabled 
-            ? 'text-red-500' 
-            : 'text-neutral-700'"
+    <div class="flex flex-col">
+        <label :for="props.name" 
+            class="text-sm" 
+            :class="props.errors && !props.disabled 
+                ? 'text-red-500' 
+                : 'text-neutral-700'"
+            >
+            {{ props.label }}
+        </label>
+        <select 
+            :name="props.name" 
+            :id="computed_id" 
+            v-model="model" 
+            class="outline-0 px-4 py-2 border-4 bg-white border-black"
         >
-        {{ props.label }}
-    </label>
-    <select 
-        :name="props.name" 
-        :id="computed_id" 
-        v-model="model" 
-        class="outline-0 px-4 py-2 border-4 bg-white border-black"
-    >
-        <option 
-            v-for="option in props.options" 
-            :value="option.id"
-        >
-            {{ option.name }}
-        </option>
-    </select>
+            <option 
+                v-for="option in props.options" 
+                :value="option.id"
+            >
+                {{ option.name }}
+            </option>
+        </select>
+    </div>
 </template>
 <script setup lang="js">
     import { computed, onMounted } from 'vue';
-    
+
     const model = defineModel();
     const props = defineProps({
         name: {
