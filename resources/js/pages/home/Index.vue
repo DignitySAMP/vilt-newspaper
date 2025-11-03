@@ -1,10 +1,10 @@
 <template>
-   
-   <AppLayout>
-    <AppHomeBreakingNews :article="tmpArticles[0]" />
-    <AppHomeHighlights :articles="tmpArticles.slice(1,3)" />
-    <AppHomeSecondaryHighlights :articles="tmpArticles.slice(3, 6)" />
-   </AppLayout>
+    <AppLayout>
+        <AppHomeBreakingNews :article="tmpArticles[0]" />
+        <AppHomeHighlights :articles="tmpArticles.slice(1,3)" />
+        <AppHomeSecondaryHighlights :articles="tmpArticles.slice(3, 6)" />
+        <AppHomeReadMore :articles="tmpArticles.slice(6)"/>
+    </AppLayout>
 </template>
 <script setup lang="js">
     import { ref } from 'vue';
@@ -12,6 +12,7 @@
     import AppHomeBreakingNews from '@/pages/home/Partials/AppHomeBreakingNews.vue';
     import AppHomeHighlights from '@/pages/home/Partials/AppHomeHighlights.vue';
     import AppHomeSecondaryHighlights from '@/pages/home/Partials/AppHomeSecondaryHighlights.vue';
+    import AppHomeReadMore from '@/pages/home/Partials/AppHomeReadMore.vue';
 
   	const tmpArticles = ref([ // placeholder
         {
@@ -73,6 +74,46 @@
             readTime: "5 min",
             category: "ENVIRONMENT",
             image: "https://images.unsplash.com/photo-1518005068251-37900150dfca?w=600&h=400&fit=crop"
+        },
+        {
+            id: 7,
+            title: "Quantum Computing Makes Commercial Debut",
+            excerpt: "",
+            author: "Dr. Rachel Kim",
+            date: "",
+            readTime: "4 min",
+            category: "TECHNOLOGY",
+            image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop"
+        },
+        {
+            id: 8,
+            title: "Ocean Conservation Efforts Show Promising Results",
+            excerpt: "",
+            author: "Thomas Wright",
+            date: "",
+            readTime: "5 min",
+            category: "ENVIRONMENT",
+            image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop"
+        },
+        {
+            id: 9,
+            title: "Digital Art Revolution Transforms Museums",
+            excerpt: "",
+            author: "Isabella Costa",
+            date: "",
+            readTime: "3 min",
+            category: "CULTURE",
+            image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=400&h=300&fit=crop"
+        },
+        {
+            id: 10,
+            title: "New Economic Policy Sparks Debate",
+            excerpt: "",
+            author: "William Foster",
+            date: "",
+            readTime: "6 min",
+            category: "BUSINESS",
+            image: "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=400&h=300&fit=crop"
         }
     ]);
 </script>
