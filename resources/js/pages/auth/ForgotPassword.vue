@@ -29,7 +29,7 @@
             </div>
 
             <AppButton
-                name="btn_request-new-password"
+                name="btn_request_new_password"
                 :disabled="form.processing"
                 type="submit"
                 @click="submit"
