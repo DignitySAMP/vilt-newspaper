@@ -1,12 +1,13 @@
 <template>
    
    <AppLayout>
-        Hello World
+    <AppHomeBreakingNews :article="tmpArticles[0]"/>
    </AppLayout>
 </template>
 <script setup lang="js">
     import { ref } from 'vue';
     import AppLayout from '@/layouts/AppLayout.vue';
+    import AppHomeBreakingNews from '@/pages/home/Partials/AppHomeBreakingNews.vue';
   	const tmpArticles = ref([ // placeholder
         {
             id: 1,

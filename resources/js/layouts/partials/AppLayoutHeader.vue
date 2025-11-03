@@ -7,9 +7,9 @@
                 </h1>
                 <div class="flex justify-center items-center gap-4 text-xs">
                     <span>{{ currentDate }}</span>
-                    <span class="w-1 h-1 bg-black rounded-full" />
+                    <AppSeparator/>
                     <span>VOLUME NO. {{ blogPostCount }}</span>
-                    <span class="w-1 h-1 bg-black rounded-full" />
+                    <AppSeparator/>
                     <span>
                         Established {{ new Date().getFullYear() }}
                     </span>
@@ -24,6 +24,7 @@
     import { computed } from 'vue';
     import { usePage } from '@inertiajs/vue3';
     import AppLayoutNavigation from '@/layouts/partials/AppLayoutNavigation.vue';
+    import AppSeparator from '@/components/AppSeparator.vue';
 
     const blogPostCount = 47; // TODO: return count of 'editions'
 
