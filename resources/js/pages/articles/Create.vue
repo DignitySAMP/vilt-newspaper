@@ -37,28 +37,51 @@
                 :errors="form.errors.image"
                 :disabled="form.processing"
             />
+
+            <AppSelect
+                name="select_category"
+                v-model="form.category"
+                :errors="form.errors.category"
+                :options="usePage().props.categories.map(cat => ({
+                    id: cat.id,
+                    name: cat.title,
+                }))"
+            />
+
             <div class="w-full flex justify-between">
                 <Link :href="route('article.index')">
-                    <AppButton name="btn_update_article" type="submit" :reverse="true">Back</AppButton>
+                    <AppButton name="btn_update_article" type="button" :reverse="true">Back</AppButton>
                 </Link>
 
-                <AppButton name="btn_create_article" type="submit">Create</AppButton>
+                <AppButton name="btn_create_article" type="submit" @click="submit">Create</AppButton>
             </div>
         </form>
     </AdminLayout>
 </template>
 <script setup lang="js">
-import AdminLayout from '@/layouts/AdminLayout.vue';
-import { useForm, Link } from '@inertiajs/vue3';
-import AppInput from '@/components/AppInput.vue';
-import AppTextarea from '@/components/AppTextarea.vue';
-import AppButton from '@/components/AppButton.vue';
+    import { useForm, usePage, Link } from '@inertiajs/vue3';
 
-const form = useForm({
-    title: '',
-    content: '',
-    summary: '',
-    image: ''
-});
+    import AdminLayout from '@/layouts/AdminLayout.vue';
+    import AppSelect from '@/components/AppSelect.vue';
+
+    import AppInput from '@/components/AppInput.vue';
+    import AppTextarea from '@/components/AppTextarea.vue';
+    import AppButton from '@/components/AppButton.vue';
+
+    const form = useForm({
+        title: '',
+        content: '',
+        summary: '',
+        image: '',
+        category: null,
+    });
+
+    const submit = () => {
+        form.post(route('article.store'), {
+            preserveScroll: true,
+            onSuccess: () => form.reset(),
+            onError: (error) => console.error(error),
+        });
+    }
 </script>
 

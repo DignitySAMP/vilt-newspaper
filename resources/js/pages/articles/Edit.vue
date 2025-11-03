@@ -37,23 +37,51 @@
                 :errors="form.errors.image"
                 :disabled="form.processing"
             />
+
+            <AppSelect
+                name="select_category"
+                v-model="form.category"
+                :errors="form.errors.category"
+                :options="usePage().props.categories.map(cat => ({
+                    id: cat.id,
+                    name: cat.title,
+                }))"
+            />
+
+            <DeleteArticle v-if="showDeleteModal" :article="props.article" />
+
             <div class="w-full flex justify-between">
                 <Link :href="route('article.index')">
-                    <AppButton name="btn_update_article" type="submit" :reverse="true">Back</AppButton>
+                    <AppButton name="btn_update_article" type="button" :reverse="true">Back</AppButton>
                 </Link>
 
-                <AppButton name="btn_update_article" type="submit">Save</AppButton>
+                <AppButton 
+                    name="btn_delete_article" 
+                    type="button" 
+                    @click="showDeleteModal = !showDeleteModal"
+                    :disabled="form.processing"
+                    :hide_symbol="true"
+                >
+                    Delete Article
+                </AppButton>
+                
+
+                <AppButton name="btn_update_article" type="submit" @click="submit">Save</AppButton>
             </div>
-            
         </form>
     </AdminLayout>
 </template>
 <script setup lang="js">
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import { useForm, Link } from '@inertiajs/vue3';
+import { useForm, usePage, Link } from '@inertiajs/vue3';
 import AppInput from '@/components/AppInput.vue';
 import AppTextarea from '@/components/AppTextarea.vue';
 import AppButton from '@/components/AppButton.vue';
+import AppSelect from '@/components/AppSelect.vue';
+import DeleteArticle from '@/pages/articles/Delete.vue';
+import { ref } from 'vue';
+
+const showDeleteModal = ref(false);
 
 const props = defineProps({
     article: {
@@ -66,7 +94,17 @@ const form = useForm({
     title: props.article.title,
     content: props.article.content,
     summary: props.article.summary,
-    image: props.article.image
+    image: props.article.image,
+    category: props.article.category_id
 });
+
+
+const submit = () => {
+    form.patch(route('article.update', props.article.id), {
+        preserveScroll: true,
+        onSuccess: () => form.reset(),
+        onError: (error) => console.error(error),
+    });
+}
 </script>
 

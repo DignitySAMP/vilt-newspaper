@@ -11,8 +11,8 @@
             <slot />
         </span>
 
-        <span v-if="props.reverse">←</span>
-        <span v-else-if="!props.reverse">→</span>
+        <span v-if="!props.hide_symbol && props.reverse">←</span>
+        <span v-else-if="!props.hide_symbol && !props.reverse">→</span>
     </button>
 </template>
 <script setup lang="js">
@@ -37,6 +37,10 @@ const props = defineProps({
         default: false,
     },
     reverse: {
+        type: Boolean,
+        default: false
+    },
+    hide_symbol: {
         type: Boolean,
         default: false
     }

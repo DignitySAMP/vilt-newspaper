@@ -43,7 +43,10 @@ class HandleInertiaRequests extends Middleware
             'app' => [
                 'name' => env('APP_NAME')
             ],
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'flash' => [
+                'message' => fn () => $request->session()->get('message')
+            ],
             //
         ];
     }
