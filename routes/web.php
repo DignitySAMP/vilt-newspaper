@@ -4,8 +4,13 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function (): mixed {
-    return Inertia::render('Welcome');
+    return Inertia::render('home/Index');
 })->name('home');
+
+
+Route::get('/dashboard', function (): mixed {
+    return Inertia::render('Welcome');
+})->name('dashboard');
 
 
 Route::get('/user/two-faction-setup', function() {
