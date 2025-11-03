@@ -13,8 +13,8 @@
             <h3 class="font-bold leading-tight truncate" :class="props.minimize ? 'text-lg' : 'text-2xl'">
                 {{ props.article.title }}
             </h3>
-            <p v-if="!props.minimize && props.article.excerpt" class="text-sm leading-relaxed min-h-32">
-                {{ props.article.excerpt }}
+            <p v-if="!props.minimize && props.article.summary" class="text-sm leading-relaxed min-h-32">
+                {{ props.article.summary }}
             </p>
             <div class="flex justify-between items-center text-xs text-gray-600 pt-3 border-t">
                 <span class="font-semibold">

@@ -57,7 +57,7 @@
         {
             id: 1,
             title: "Revolutionary AI System Transforms Software Development",
-            excerpt: "In a groundbreaking development, researchers have unveiled a new artificial intelligence system that promises to revolutionize how we approach software development. The system demonstrates unprecedented capabilities in understanding context and generating solutions.",
+            summary: "In a groundbreaking development, researchers have unveiled a new artificial intelligence system that promises to revolutionize how we approach software development. The system demonstrates unprecedented capabilities in understanding context and generating solutions.",
             author: "Sarah Mitchell",
             date: "Nov 3, 2025",
             readTime: "5 min",
@@ -67,7 +67,7 @@
         {
             id: 2,
             title: "Global Climate Summit Reaches Historic Agreement",
-            excerpt: "World leaders have signed a landmark treaty committing to aggressive carbon reduction targets.",
+            summary: "World leaders have signed a landmark treaty committing to aggressive carbon reduction targets.",
             author: "James Chen",
             date: "Nov 2, 2025",
             readTime: "4 min",
@@ -77,7 +77,7 @@
         {
             id: 3,
             title: "Market Volatility Continues Amid Economic Uncertainty",
-            excerpt: "Stock markets experienced significant fluctuations this week as investors grapple with mixed economic signals.",
+            summary: "Stock markets experienced significant fluctuations this week as investors grapple with mixed economic signals.",
             author: "Emily Rodriguez",
             date: "Nov 2, 2025",
             readTime: "3 min",
@@ -87,7 +87,7 @@
         {
             id: 4,
             title: "Archaeological Discovery Rewrites Ancient History",
-            excerpt: "A team of archaeologists has unearthed artifacts that challenge our understanding of early civilizations.",
+            summary: "A team of archaeologists has unearthed artifacts that challenge our understanding of early civilizations.",
             author: "Dr. Michael Park",
             date: "Nov 1, 2025",
             readTime: "6 min",
@@ -97,7 +97,7 @@
         {
             id: 5,
             title: "Space Agency Announces Ambitious Mars Colony Timeline",
-            excerpt: "Plans for establishing a permanent human presence on Mars have been accelerated, with the first crewed mission targeted for 2035. The announcement marks a new era in space exploration.",
+            summary: "Plans for establishing a permanent human presence on Mars have been accelerated, with the first crewed mission targeted for 2035. The announcement marks a new era in space exploration.",
             author: "Lisa Yamamoto",
             date: "Oct 31, 2025",
             readTime: "7 min",
@@ -107,7 +107,7 @@
         {
             id: 6,
             title: "Renaissance of Urban Green Spaces Transforms Cities",
-            excerpt: "Metropolitan areas worldwide are embracing innovative approaches to urban planning, creating sustainable green spaces that improve quality of life and combat climate change effects.",
+            summary: "Metropolitan areas worldwide are embracing innovative approaches to urban planning, creating sustainable green spaces that improve quality of life and combat climate change effects.",
             author: "Marcus Thompson",
             date: "Oct 30, 2025",
             readTime: "5 min",
@@ -117,7 +117,7 @@
         {
             id: 7,
             title: "Quantum Computing Makes Commercial Debut",
-            excerpt: "",
+            summary: "",
             author: "Dr. Rachel Kim",
             date: "",
             readTime: "4 min",
@@ -127,7 +127,7 @@
         {
             id: 8,
             title: "Ocean Conservation Efforts Show Promising Results",
-            excerpt: "",
+            summary: "",
             author: "Thomas Wright",
             date: "",
             readTime: "5 min",
@@ -137,7 +137,7 @@
         {
             id: 9,
             title: "Digital Art Revolution Transforms Museums",
-            excerpt: "",
+            summary: "",
             author: "Isabella Costa",
             date: "",
             readTime: "3 min",
@@ -147,7 +147,7 @@
         {
             id: 10,
             title: "New Economic Policy Sparks Debate",
-            excerpt: "",
+            summary: "",
             author: "William Foster",
             date: "",
             readTime: "6 min",
