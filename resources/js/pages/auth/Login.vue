@@ -1,5 +1,4 @@
 <template>
-    <AppLayout>
         <form @submit.prevent class="flex flex-col gap-2">
             <div class="flex flex-col gap-2">
                 <label class="text-sm text-gray-700" for="email">Email address</label>
@@ -14,6 +13,7 @@
                 <span v-if="form.errors.password" v-html="form.errors.password" class="text-sm text-red-700"/>
             </div>
 
+    <AppGuestLayout>
 
             <div class="flex items-center gap-2">
                 <input type="checkbox" name="remember" id="remember" v-model="form.remember" autocomplete="remember" class="size-4 checked:accent-gray-500"/>
@@ -37,13 +37,13 @@
                 </button>
             </div>
         </form>
-    </AppLayout>
+    </AppGuestLayout>
 
 </template>
 <script setup lang="js">
 
 import { useForm, Link } from '@inertiajs/vue3';
-import AppLayout from '@/layout/AppLayout.vue';
+import AppGuestLayout from '@/layout/AppGuestLayout.vue';
 
 const form = useForm({
     email: '', // OR username: ''

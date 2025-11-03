@@ -1,5 +1,5 @@
 <template>
-    <AppLayout>
+    <AppGuestLayout>
         <div class="flex flex-col gap-2">
             <div v-if="usePage().props.status !== null && usePage().props.status === 'verification-link-sent'" class="text-sm text-center px-4 py-2 border border-green-300 bg-green-100 text-green-800 rounded">
                 A new verification link has been sent to the email address you provided during registration.
@@ -25,11 +25,11 @@
                 </span>
             </div>
         </div>
-    </AppLayout>
+    </AppGuestLayout>
 
 </template>
 <script setup lang="js">
-import AppLayout from '@/layout/AppLayout.vue'
+import AppGuestLayout from '@/layout/AppGuestLayout.vue'
 import { useForm, usePage } from '@inertiajs/vue3';
 const form = useForm();
 </script>

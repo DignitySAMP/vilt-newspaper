@@ -1,5 +1,5 @@
 <template>
-      <AppLayout>
+      <AppGuestLayout>
         <div class="flex flex-col gap-2">
             <span class="text-sm">
                 In order to access this part of the application, you must confirm your password. 
@@ -18,10 +18,10 @@
                 </button>
             </div>
         </div>
-    </AppLayout>
+    </AppGuestLayout>
 </template>
 <script setup lang="js">
-    import AppLayout from '@/layout/AppLayout.vue';
+    import AppGuestLayout from '@/layout/AppGuestLayout.vue';
     import { useForm } from '@inertiajs/vue3';
 
     const form = useForm({

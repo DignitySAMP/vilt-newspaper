@@ -1,5 +1,5 @@
 <template>
-    <AppLayout>
+    <AppGuestLayout>
         <div class="flex flex-col gap-2 text-gray-700">
             <span class="text-lg font-semibold">Two factor authentication</span>
 
@@ -47,11 +47,11 @@
                 </p>
             </form>
         </div>
-    </AppLayout>
+    </AppGuestLayout>
 </template>
 
 <script setup>
-import AppLayout from '@/layout/AppLayout.vue'
+import AppGuestLayout from '@/layout/AppGuestLayout.vue'
 import { ref } from 'vue'
 import { useForm } from '@inertiajs/vue3'
 

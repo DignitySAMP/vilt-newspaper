@@ -1,5 +1,5 @@
 <template>
-    <AppLayout>
+    <AppGuestLayout>
         <div class="flex flex-col gap-2">
             <div class="flex flex-col gap-2">
                 <label for="email" class="text-sm text-gray-700">Email address</label>
@@ -25,11 +25,11 @@
                 </button>
             </div>
         </div>
-    </AppLayout>
+    </AppGuestLayout>
 </template>
 <script setup lang="js">
 
-import AppLayout from '@/layout/AppLayout.vue';
+import AppGuestLayout from '@/layout/AppGuestLayout.vue';
 import { useForm } from '@inertiajs/vue3';
 
 const props = defineProps({

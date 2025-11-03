@@ -1,5 +1,5 @@
 <template>
-    <AppLayout>
+    <AppGuestLayout>
 
 
         <div v-if="usePage().props.mfa_enabled" class="flex flex-col gap-4 text-gray-700">
@@ -55,14 +55,14 @@
                 <pre class="bg-gray-800 text-gray-100 whitespace-pre p-4 rounded"><div v-for="code in recoveryCodes" :key="code">{{ code }}</div></pre>
             </div>
         </div>
-    </AppLayout>
+    </AppGuestLayout>
 </template>
 
 <script setup lang="js">
 import { ref } from 'vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
-import AppLayout from '@/layout/AppLayout.vue';
+import AppGuestLayout from '@/layout/AppGuestLayout.vue';
 
 
 const form = useForm({

@@ -1,5 +1,5 @@
 <template>
-    <AppLayout>
+    <AppGuestLayout>
         <form @submit.prevent class="flex flex-col gap-2">
             <div class="flex flex-col gap-2">
                 <label for="name" class="text-sm text-gray-700">Name</label>
@@ -40,10 +40,10 @@
             </div>
         </form>
 
-    </AppLayout>
+    </AppGuestLayout>
 </template>
 <script setup lang="js">
-import AppLayout from '@/layout/AppLayout.vue';
+import AppGuestLayout from '@/layout/AppGuestLayout.vue';
 import { useForm, Link } from '@inertiajs/vue3';
 
 
