@@ -46,8 +46,7 @@ Route::group(['middleware' => ['auth', 'verified', 'password.confirm', 'role:pub
         return Inertia::render('admin/Index');
     })->name('admin');
     Route::resource('article', ArticleController::class)->except(['show']);
-    Route::resource('category', CategoryController::class)->except(['show']);
+    Route::resource('category', CategoryController::class);
 });
 
-Route::get('category/{category}', [CategoryController::class, 'show'])->name('category.show');
 Route::get('article/{article}', [ArticleController::class, 'show'])->name('article.show');
