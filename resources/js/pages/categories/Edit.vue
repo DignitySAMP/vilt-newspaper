@@ -1,5 +1,5 @@
 <template>
-    <AdminLayout>
+    <AdminLayout active_tab="category">
         <form @submit.prevent class="flex flex-col gap-3">
             <AppInput
                 label="Title"

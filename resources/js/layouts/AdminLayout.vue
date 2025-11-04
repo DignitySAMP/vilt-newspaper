@@ -7,9 +7,26 @@
             </h1>
             
             <nav class="flex flex-wrap justify-center gap-8 text-sm font-semibold tracking-wide">
-                <span class="hover:underline uppercase">Home</span>         
-                <span class="hover:underline uppercase">Articles</span>
-                <span class="hover:underline uppercase">Categories</span>
+                <Link 
+                    :href="route('home')" 
+                    class="hover:underline uppercase"
+                >
+                    Home
+                </Link>         
+                <Link 
+                    :href="route('article.index')" 
+                    class="hover:underline uppercase"
+                    :class="props.active_tab === 'article' ? 'font-bold underline' : ''"
+                >
+                    Articles
+                </Link>
+                <Link 
+                    :href="route('category.index')" 
+                    class="hover:underline uppercase"
+                    :class="props.active_tab === 'category' ? 'font-bold underline' : ''"
+                >
+                    Categories
+                </Link>
                 <span class="hover:underline uppercase">Writers</span>
                 <span class="hover:underline uppercase">Newsletter</span>
             </nav>
@@ -22,5 +39,13 @@
 </template>
 <script setup lang="js">
     import AppBody from '@/layouts/Partials/AppLayoutBody.vue';
+    import { Link } from '@inertiajs/vue3';
+    const props = defineProps({
+        active_tab: {
+            type: String,
+            required: false,
+            default: ''
+        }
+    })
 </script>
 

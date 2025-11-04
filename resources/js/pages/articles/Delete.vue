@@ -1,7 +1,5 @@
 <template>
-
     <div class="border-4 border-black bg-red-100 p-4 flex flex-col gap-2">
-
         <h1 class="text-lg font-black">
             Delete Article
         </h1>
