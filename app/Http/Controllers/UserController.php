@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Hash;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Spatie\Permission\Models\Role;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -41,7 +44,8 @@ class UserController extends Controller
     {
         $user->load('roles');
         return Inertia::render('users/Edit', [
-            'user' => $user
+            'user' => $user,
+            'roles' => Role::all()
         ]);
     }
 
@@ -50,7 +54,35 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|string|min:4|max:32',
+            'email' => [
+                'required',
+                'email',
+                'max:64',
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'password' => 'nullable|min:6|max:64|confirmed',
+            'roles' => 'nullable|array',
+            'roles.*' => 'string|exists:roles,name',
+        ]);
+
+        $user->update([
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+        ]);
+
+        if (!empty($validate['password'])) {
+            $user->password = Hash::make($validate['password']);
+        }
+
+        if (!empty($validate['roles'])) {
+            $user->syncRoles($validate['roles']);
+        }
+
+        $user->save();
+        
+        return redirect()->route('users.index')->with('message', 'User has been updated.');
     }
 
     /**
