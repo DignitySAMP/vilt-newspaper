@@ -9,7 +9,7 @@
             <nav class="flex flex-wrap justify-center gap-8 text-sm font-semibold tracking-wide">
                 <Link 
                     :href="route('home')" 
-                    class="hover:underline uppercase"
+                    class="hover:underline uppercase text-blue-500"
                 >
                     Home
                 </Link>         
@@ -29,6 +29,10 @@
                 </Link>
                 <span class="hover:underline uppercase">Writers</span>
                 <span class="hover:underline uppercase">Newsletter</span>
+                
+                <Link :href="route('logout')" method="POST" class="text-sm font-semibold text-red-700 tracking-wide uppercase hover:underline">
+                    Logout
+                </Link>
             </nav>
         </div>
     </header>
