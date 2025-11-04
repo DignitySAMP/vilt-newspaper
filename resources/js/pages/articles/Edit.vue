@@ -49,7 +49,7 @@
                 }))"
             />
 
-            <DeleteArticle v-if="showDeleteModal" :article="props.article" />
+            <DeleteArticle v-if="showDeleteModal" :article="usePage().props.article" />
 
             <div class="w-full flex flex-col md:flex-row justify-between gap-4">
                 <Link :href="route('article.index')" view-transition>
@@ -84,24 +84,17 @@ import { ref } from 'vue';
 
 const showDeleteModal = ref(false);
 
-const props = defineProps({
-    article: {
-        type: Object,
-        required: true
-    }
-});
-
 const form = useForm({
-    title: props.article.title,
-    content: props.article.content,
-    summary: props.article.summary,
-    image: props.article.image,
-    category: props.article.category_id
+    title: usePage().props.article.title,
+    content: usePage().props.article.content,
+    summary: usePage().props.article.summary,
+    image: usePage().props.article.image,
+    category: usePage().props.article.category_id
 });
 
 
 const submit = () => {
-    form.patch(route('article.update', props.article.id), {
+    form.patch(route('article.update', usePage().props.article.id), {
         preserveScroll: true,
         onSuccess: () => form.reset(),
         onError: (error) => console.error(error),

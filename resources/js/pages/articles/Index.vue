@@ -15,7 +15,7 @@
         </div>
 
         <div class="flex flex-col gap-4">
-            <div v-for="article in articles" :key="article.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
+            <div v-for="article in usePage().props.articles" :key="article.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
                 <div class="flex flex-col gap-2">
                     <span class="font-semibold">
                         {{ article.title }}
@@ -48,11 +48,4 @@
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import AppButton from '@/components/AppButton.vue'
 import { Link, usePage } from '@inertiajs/vue3';
-
-const props = defineProps({
-    articles: {
-        type: Array,
-        required: true
-    }
-});
 </script>

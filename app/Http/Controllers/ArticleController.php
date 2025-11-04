@@ -111,7 +111,7 @@ class ArticleController extends Controller
      */
     public function destroy(Request $request, Article $article)
     {
-        $validate = $request->validate(['name' => 'required|string',]);
+        $validate = $request->validate(['name' => 'required|string']);
         if($validate['name'] != $article->title) {
             return back()->withErrors(['name' => 'Confirmation does not match the article title.']);
         }
