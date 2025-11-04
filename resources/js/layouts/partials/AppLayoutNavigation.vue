@@ -3,7 +3,9 @@
       
         <Link
             v-for="item in usePage().props.categories"
-            href="#"
+            :href="route('home', {
+                'category':  item.title.trim() ?? null
+            })"
             class="hover:underline uppercase"
         >
             {{ item.title }}

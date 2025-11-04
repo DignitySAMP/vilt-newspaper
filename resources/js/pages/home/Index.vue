@@ -1,5 +1,14 @@
 <template>
     <AppLayout v-if="currentPage === 0">
+        <div v-if="route().params?.category && route().params?.category !== null" class="px-4 py-2 w-full flex items-center justify-between border-2 border-amber-400 bg-amber-50">
+            <span>
+                Currently only showing articles under the <span class="lowercase font-bold underline">{{ route().params.category }}</span> category.
+            </span>
+            <Link :href="route('home')" class="font-bold underline uppercase text-xs cursor-pointer">
+                Reset
+            </Link>
+        </div>
+
         <AppHomeBreakingNews :article="usePage().props.articles[0]" />
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -48,7 +57,7 @@
 </template>
 <script setup lang="js">
     import { ref } from 'vue';
-    import { usePage } from '@inertiajs/vue3';
+    import { usePage, Link } from '@inertiajs/vue3';
 
     import AppLayout from '@/layouts/AppLayout.vue';
     import AppHomeBreakingNews from '@/pages/home/Partials/AppHomeBreakingNews.vue';
