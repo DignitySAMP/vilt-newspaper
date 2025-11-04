@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
@@ -12,7 +13,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('categories/Index',[
+            'category' => Category::select(['id', 'title', 'description'])->get()
+        ]);
     }
 
     /**
@@ -20,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('categories/Create');
     }
 
     /**
@@ -28,7 +31,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'title' => 'required|string|min:5|max:128',
+            'description' => 'required|string|min:8|max:256'
+        ]);
+
+        Category::create([
+            'title' => $validate['title'],
+            'description' => $validate['description'],
+        ]);
+
+        return redirect()->route('category.index')->with('message', 'Category has been created.');
     }
 
     /**
@@ -36,7 +49,11 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $category->load('articles');
+
+        return Inertia::render('categories/Show', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -44,7 +61,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return Inertia::render('categories/Edit',[
+            'category' => $category
+        ]);
     }
 
     /**
@@ -52,14 +71,33 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validate = $request->validate([
+            'title' => 'required|string|min:5|max:128',
+            'description' => 'required|string|min:8|max:256'
+        ]);
+
+        $category->update([
+            'title' => $validate['title'],
+            'description' => $validate['description'],
+        ]);
+
+        $category->save();
+
+        return redirect()->route('category.index')->with('message', 'Category has been updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request, Category $category)
     {
-        //
+        $validate = $request->validate(['name' => 'required|string',]);
+        if($validate['name'] != $category->title) {
+            return back()->withErrors(['name' => 'Confirmation does not match the category title.']);
+        }
+
+        $category->delete();
+
+        return redirect()->route('category.index')->with('message', 'Category has been deleted.');
     }
 }
