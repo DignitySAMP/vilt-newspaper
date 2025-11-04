@@ -9,9 +9,11 @@
             />
             
             <div class="flex flex-col" :class="props.minimize ? 'p-4 gap-1' : 'p-6 gap-3'">
-                <div class="text-xs font-bold tracking-widest uppercase" :class="props.category_color">
-                    {{ props.article.category.title }}
-                </div>
+                <Link :href="route('home', {
+                    'category': props.article.category.title.trim() ?? null
+                })" class="text-xs font-bold tracking-widest uppercase hover:underline" :class="props.category_color">
+                    {{ props.article.category.title ?? 'General' }}
+                </Link>
                 <h3 class="font-bold leading-tight truncate" :class="props.minimize ? 'text-lg' : 'text-2xl'">
                     {{ props.article.title }}
                 </h3>

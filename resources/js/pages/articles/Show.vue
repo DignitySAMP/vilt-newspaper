@@ -18,7 +18,11 @@
                 <div class="flex gap-2 w-full items-center md:justify-end">
                     <span>{{ new Date(article.created_at).toDateString() }}</span>
                     <AppSeparator/>
-                    <span>{{ article.category?.title ?? 'General'}}</span>
+                    <Link :href="route('home', {
+                        'category': article.category?.title.trim() ?? null
+                    })" class="text-xs font-bold tracking-widest uppercase text-blue-500 hover:underline">
+                        {{ article.category?.title ?? 'General' }}
+                    </Link>
                 </div>
             </header>
 
