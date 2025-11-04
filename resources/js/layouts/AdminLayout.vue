@@ -8,6 +8,12 @@
             
             <nav class="flex flex-wrap justify-center gap-8 text-sm font-semibold tracking-wide">
                 <Link 
+                    :href="route('home')" 
+                    class="hover:underline uppercase text-blue-500"
+                >
+                    Home
+                </Link>  
+                <Link 
                     :href="route('admin')" 
                     class="hover:underline uppercase"
                     :class="props.active_tab === 'home' ? 'font-bold underline' : ''"
