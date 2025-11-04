@@ -8,10 +8,11 @@
             
             <nav class="flex flex-wrap justify-center gap-8 text-sm font-semibold tracking-wide">
                 <Link 
-                    :href="route('home')" 
-                    class="hover:underline uppercase text-blue-500"
+                    :href="route('admin')" 
+                    class="hover:underline uppercase"
+                    :class="props.active_tab === 'home' ? 'font-bold underline' : ''"
                 >
-                    Home
+                    Dashboard
                 </Link>         
                 <Link 
                     :href="route('article.index')" 
@@ -27,9 +28,8 @@
                 >
                     Categories
                 </Link>
-                <span class="hover:underline uppercase">Writers</span>
-                <span class="hover:underline uppercase">Newsletter</span>
-                
+                <span class="hover:underline uppercase">Users</span>
+
                 <Link :href="route('logout')" method="POST" class="text-sm font-semibold text-red-700 tracking-wide uppercase hover:underline">
                     Logout
                 </Link>

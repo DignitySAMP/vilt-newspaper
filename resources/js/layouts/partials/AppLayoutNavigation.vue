@@ -22,7 +22,7 @@
         </div>
 
         <div v-else  class="flex gap-8 flex-wrap">
-            <Link :href="route('article.index')" class="text-sm font-semibold text-blue-700 tracking-wide uppercase hover:underline">
+            <Link :href="route('admin')" class="text-sm font-semibold text-blue-700 tracking-wide uppercase hover:underline">
                 Admin
             </Link>
             <Link :href="route('logout')" method="POST" class="text-sm font-semibold text-red-700 tracking-wide uppercase hover:underline">

@@ -7,9 +7,10 @@ use App\Models\User;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
+
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 use App\Models\Category;
 use App\Models\Article;
 
@@ -20,14 +21,38 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(5)->create();// random users for article author
 
-        User::factory()->create([
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+
+        $role = Role::create(['name' => 'writer']);
+        Permission::create(['name' => 'create articles']);
+        Permission::create(['name' => 'edit articles']);
+        Permission::create(['name' => 'delete articles']);
+        $role->givePermissionTo(['create articles', 'edit articles', 'delete articles']);
+
+        $role = Role::create(['name' => 'publisher']);
+        Permission::create(['name' => 'create categories']);
+        Permission::create(['name' => 'edit categories']);
+        Permission::create(['name' => 'delete categories']);
+        $role->givePermissionTo(['create categories', 'edit categories', 'delete categories']);
+
+        $role = Role::create(['name' => 'administrator']);
+        Permission::create(['name' => 'create users']);
+        Permission::create(['name' => 'edit users']);
+        Permission::create(['name' => 'delete users']);
+        $role->givePermissionTo(['create users', 'edit categories', 'delete users']);
+
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        
+        $admin = User::factory()->create([
             'name' => 'Webteam Datalink',
             'email' => 'webteam@datalink.be',
             'password' => Hash::make('webteam@datalink.be')
         ]);
+        $admin->assignrole(['writer', 'publisher', 'administrator']);
         
+        User::factory(5)->create();// random users for article author
+
         Category::factory()->create([ 'title' => 'World' ]);
         Category::factory()->create([ 'title' => 'Technology' ]);
         Category::factory()->create([ 'title' => 'Business' ]);
@@ -54,5 +79,8 @@ class DatabaseSeeder extends Seeder
                 'category_id' => Category::inRandomOrder()->first()
             ]);
         }
+
+
+        
     }
 }
