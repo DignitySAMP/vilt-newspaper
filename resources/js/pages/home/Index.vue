@@ -9,22 +9,22 @@
             </Link>
         </div>
 
-        <AppHomeBreakingNews :article="usePage().props.articles[0]" />
+        <AppHomeBreakingNews :article="usePage().props.articles.data[0]" />
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div v-for="article in usePage().props.articles.slice(1, 3)" :key="article.id">
+            <div v-for="article in usePage().props.articles.data.slice(1, 3)" :key="article.id">
                 <AppHomeArticleCard :article="article" category_color="text-red-600"/>
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div v-for="article in usePage().props.articles.slice(3, 6)" :key="article.id">
+            <div v-for="article in usePage().props.articles.data.slice(3, 6)" :key="article.id">
                 <AppHomeArticleCard :article="article" category_color="text-red-600"/>
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div v-for="article in usePage().props.articles.slice(6)" :key="article.id">
+            <div v-for="article in usePage().props.articles.data.slice(6)" :key="article.id">
                 <AppHomeArticleCard :article="article" category_color="text-green-600" :minimize="true"/>
             </div>
         </div>
@@ -50,7 +50,7 @@
     </AppLayout>
     <AppLayout v-else-if="currentPage > 0">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <AppHomeArticleCard v-for="article in usePage().props.articles" :article="article" :key="article.id"/>
+            <AppHomeArticleCard v-for="article in usePage().props.articles.data" :article="article" :key="article.id"/>
         </div>
     </AppLayout>
 

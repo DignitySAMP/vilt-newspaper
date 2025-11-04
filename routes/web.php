@@ -3,14 +3,30 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 
-Route::get('/', function (): mixed {
+Route::get('/', function (Request $request): mixed {
+
+    $query = Article::with(['author:id,name', 'category:id,title'])->select();
+
+    if ($request->has('category')) {
+        $category = Category::where('title', $request->get('category'))->first(['id']);
+
+        if ($category) {
+            $query->where('category_id', $category->id);
+        }
+    }
+
+    $articles = $query->orderByDesc('created_at')->paginate(20);
+
     return Inertia::render('home/Index', [
-        'articles' => Article::with(['author', 'category'])->get()
+        'articles' => $articles,
     ]);
 })->name('home');
+
 
 
 Route::get('/dashboard', function (): mixed {

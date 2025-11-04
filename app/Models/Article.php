@@ -11,7 +11,7 @@ class Article extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id', 'category_id', 'title', 'content', 'summary', 'image', 'title'
+        'user_id', 'category_id', 'title', 'content', 'summary', 'image'
     ];
     protected $appends = [
         'read_time'
