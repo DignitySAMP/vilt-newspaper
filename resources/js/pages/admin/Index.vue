@@ -1,7 +1,7 @@
 <template>
     <AdminLayout active_tab="home">
         <Link :href="route('home')" class="flex h-fit w-fit">
-            <AppButton :reverse="true">
+            <AppButton :reverse="true" name="btn_return_home">
                 Back to website
             </AppButton>
         </Link>
@@ -14,7 +14,7 @@
                 </div>
 
                 <Link :href="route('article.index')" class="flex h-fit w-fit">
-                    <AppButton>
+                    <AppButton name="btn_redirect_articles">
                         Manage Articles
                     </AppButton>
                 </Link>
@@ -27,7 +27,7 @@
                 </div>
 
                 <Link :href="route('category.index')" class="flex h-fit w-fit">
-                    <AppButton>
+                    <AppButton name="btn_redirect_categories">
                         Manage Categories
                     </AppButton>
                 </Link>
@@ -39,7 +39,7 @@
                     <span class="text-sm">The back office is responsible for managing internal users.</span>
                 </div>
                 <Link :href="route('users.index')" class="flex h-fit w-fit">
-                    <AppButton>
+                    <AppButton name="btn_redirect_users">
                         Manage Users
                     </AppButton>
                 </Link>
