@@ -76,6 +76,11 @@
                 color: "text-blue-600",
             },
             {
+                url: route('profile'),
+                name: "Profile",
+                color: "text-blue-600",
+            },
+            {
                 url: route('logout'),
                 name: "Logout",
                 method: "POST",

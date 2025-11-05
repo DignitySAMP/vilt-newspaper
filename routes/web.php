@@ -18,6 +18,11 @@ Route::group(['middleware' => ['auth', 'verified', 'password.confirm']], functio
         ]);
     })->name('two-factor.setup');
 
+
+    Route::get('/profile', function() {
+        return Inertia::render( 'Welcome');
+    })->name('profile');
+
     Route::group(['middleware' => ['role:publisher|writer|administrator']], function () { 
         
         Route::get('admin', function() {
