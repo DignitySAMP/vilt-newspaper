@@ -34,7 +34,13 @@
                 >
                     Categories
                 </Link>
-                <span class="hover:underline uppercase">Users</span>
+                <Link 
+                    :href="route('users.index')" 
+                    class="hover:underline uppercase"
+                    :class="props.active_tab === 'users' ? 'font-bold underline' : ''"
+                >
+                    Users
+                </Link>
 
                 <Link :href="route('logout')" method="POST" class="text-sm font-semibold text-red-700 tracking-wide uppercase hover:underline">
                     Logout

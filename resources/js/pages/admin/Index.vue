@@ -35,14 +35,14 @@
             </div>
             <div class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
                 <div class="flex flex-col gap-2">
-                    <span class="font-black">Administrator Dashboard</span>
-                    <span class="text-sm">The administrator is responsible for managing internal users.</span>
+                    <span class="font-black">Back Office Dashboard</span>
+                    <span class="text-sm">The back office is responsible for managing internal users.</span>
                 </div>
-                <div class="flex h-fit w-fit">
+                <Link :href="route('users.index')" class="flex h-fit w-fit">
                     <AppButton>
                         Manage Users
                     </AppButton>
-                </div>
+                </Link>
             </div>
 
         </div>

@@ -6,8 +6,8 @@
 
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-bold">Users</h1>
-            <Link :href="route('article.create')" class="hover:underline" view-transition>
-                <AppButton name="btn_article_create">
+            <Link :href="route('users.create')" class="hover:underline" view-transition>
+                <AppButton name="btn_user_create">
                     Create New User
                 </AppButton>
             </Link>

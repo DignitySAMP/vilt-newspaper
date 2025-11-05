@@ -1,5 +1,5 @@
 <template>
-    <AdminLayout active_tab="article">
+    <AdminLayout active_tab="users">
         <form @submit.prevent class="flex flex-col gap-3">
             <AppInput
                 label="Name"
@@ -45,13 +45,14 @@
 
             <EditRoles 
                 :roles="usePage().props.roles" 
-                v-model="form.roles" 
-                :user_roles="form.roles"
+                v-model="form.roles"
             />
+
+            <DeleteUser v-if="showDeleteModal" :user="usePage().props.user"/>
 
             <div class="w-full flex flex-col md:flex-row justify-between gap-4">
                 <Link :href="route('users.index')" view-transition>
-                    <AppButton name="btn_update_user" type="button" :reverse="true">Back</AppButton>
+                    <AppButton name="btn_return_user" type="button" :reverse="true">Back</AppButton>
                 </Link>
 
                 <AppButton 
@@ -59,6 +60,7 @@
                     type="button" 
                     :disabled="form.processing"
                     :hide_symbol="true"
+                    @click="showDeleteModal = !showDeleteModal"
                 >
                     Delete User
                 </AppButton>
@@ -70,13 +72,17 @@
     </AdminLayout>
 </template>
 <script setup lang="js">
-
+    import { ref } from 'vue';
     import { useForm, usePage, Link } from '@inertiajs/vue3';
 
     import AdminLayout from '@/layouts/AdminLayout.vue';
+    import DeleteUser from '@/pages/users/Delete.vue'
+
     import AppInput from '@/components/AppInput.vue';
     import AppButton from '@/components/AppButton.vue';
     import EditRoles from '@/pages/users/EditRoles.vue';
+
+    const showDeleteModal = ref(false);
 
     const form = useForm({
         name: usePage().props.user.name,

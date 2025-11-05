@@ -26,7 +26,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('users/Create');
+        return Inertia::render('users/Create', [
+            'roles' => Role::select(['id', 'name'])->get()
+        ]);
     }
 
     /**
@@ -34,7 +36,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|string|min:4|max:32',
+            'email' => 'required|email|max:64|unique:users,email',
+            'password' => 'nullable|min:6|max:64|confirmed',
+            'roles' => 'nullable|array',
+            'roles.*.name' => 'string|exists:roles,name',
+        ]);
+
+        $user = User::create([
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+            'password' => Hash::make($validate['password'])
+        ]);
+
+        $user->syncRoles($validate['roles'] ?? []);
+        
+        return redirect()->route('users.index')->with('message', 'User has been updated.');
     }
 
     /**
@@ -45,7 +63,7 @@ class UserController extends Controller
         $user->load('roles');
         return Inertia::render('users/Edit', [
             'user' => $user,
-            'roles' => Role::all()
+            'roles' => Role::select(['id', 'name'])->get()
         ]);
     }
 
@@ -64,7 +82,7 @@ class UserController extends Controller
             ],
             'password' => 'nullable|min:6|max:64|confirmed',
             'roles' => 'nullable|array',
-            'roles.*' => 'string|exists:roles,name',
+            'roles.*.name' => 'string|exists:roles,name',
         ]);
 
         $user->update([
@@ -72,15 +90,12 @@ class UserController extends Controller
             'email' => $validate['email'],
         ]);
 
+        $user->syncRoles($validate['roles'] ?? []);
+
         if (!empty($validate['password'])) {
             $user->password = Hash::make($validate['password']);
+            $user->save();
         }
-
-        if (!empty($validate['roles'])) {
-            $user->syncRoles($validate['roles']);
-        }
-
-        $user->save();
         
         return redirect()->route('users.index')->with('message', 'User has been updated.');
     }
@@ -88,8 +103,15 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, User $user)
     {
-        //
+        $validate = $request->validate(['email' => 'required|email']);
+        if($validate['email'] != $user->email) {
+            return back()->withErrors(['email' => 'Confirmation does not match the email.']);
+        }
+
+        $user->delete();
+
+        return redirect()->route('users.index')->with('message', 'User has been deleted.');
     }
 }
