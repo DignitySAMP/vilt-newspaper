@@ -6,7 +6,7 @@
                 v-for="item in navigationList"
                 :href="item.url"
                 :method="item.method ?? 'GET'"
-                class="md:w-fit hover:underline uppercase"
+                class="md:w-fit hover:underline uppercase cursor-pointer"
                 :class="item.color"
             >
                 {{ item.name }}
