@@ -1,5 +1,5 @@
 <template>
-    <AdminLayout active_tab="category">
+    <AdminLayout active_tab="categories">
         <Link :href="route('category.index')" class="size-full md:size-fit" view-transition>
             <AppButton name="btn_category_index" :reverse="true">
                 Back

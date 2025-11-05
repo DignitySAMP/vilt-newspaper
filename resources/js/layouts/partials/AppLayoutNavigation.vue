@@ -37,11 +37,10 @@
 </template>
 <script setup lang="js">
     import { Link, usePage } from '@inertiajs/vue3';
-    import IconMobileBreadcrumb from '@/icons/IconMobileBreadcrumb.vue';
     import { onMounted, ref } from 'vue';
 
+    import IconMobileBreadcrumb from '@/icons/IconMobileBreadcrumb.vue';
     const collapsedNavigation = ref(false);
-
     const navigationList = ref([]);
   
     onMounted(() => {

@@ -1,5 +1,5 @@
 <template>
-    <AdminLayout active_tab="article">
+    <AdminLayout active_tab="articles">
 
         <span v-if="usePage().props.flash?.message" class="w-full px-4 py-2 bg-amber-100 border-4 border-amber-300 text-amber-700">
             {{ usePage().props.flash.message }}
