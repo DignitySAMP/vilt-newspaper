@@ -12,8 +12,11 @@
                 </AppButton>
             </Link>
         </div>
+
+        <IndexSearch/>
+
         <div class="flex flex-col gap-4">
-            <div v-for="user in usePage().props.users" :key="user.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
+            <div v-for="user in usePage().props.users.data" :key="user.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
                 <div class="flex flex-col gap-2">
                     <div class="flex gap-2 items-center">
                         <span class="font-semibold">
@@ -42,10 +45,13 @@
                 </Link>
             </div>
         </div>
+        <AppPagination :links="usePage().props.users"/>
     </AdminLayout>
 </template>
 <script setup lang="js">
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import AppButton from '@/components/AppButton.vue'
+import AppPagination from '@/components/AppPagination.vue'
 import { Link, usePage } from '@inertiajs/vue3';
+import IndexSearch from '@/pages/users/partials/IndexSearch.vue';
 </script>
