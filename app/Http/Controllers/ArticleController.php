@@ -31,9 +31,11 @@ class ArticleController extends Controller implements HasMiddleware
 
         if ($request->has('search') && !empty(trim($request->get('search')))) {
             $search = trim($request->get('search'));
-            $query->where('title', 'like', "%{$search}%");
+            $query->where('title', 'like', "%{$search}%")
+                ->orWhere('content', 'like', "%{$search}%")
+                ->orWhere('summary', 'like', "%{$search}%");
         }
-        
+
         $articles = $query->orderByDesc('created_at')->paginate(10)->withQueryString();
 
         return Inertia::render('articles/Index', [
