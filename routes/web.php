@@ -21,7 +21,7 @@ Route::get('/', function (Request $request): mixed {
         }
     }
 
-    $articles = $query->orderByDesc('created_at')->paginate(20);
+    $articles = $query->orderByDesc('created_at')->paginate(10);
 
     return Inertia::render('home/Index', [
         'articles' => $articles,

@@ -10,6 +10,8 @@
         <div v-else class="min-h-190">
             <span>There are no articles under this category.</span>
         </div>
+
+        <AppPagination :links="usePage().props.articles"/>
     </AppLayout>
 </template>
 <script setup lang="js">
@@ -17,5 +19,5 @@
 
     import AppLayout from '@/layouts/AppLayout.vue';
     import AppHomeArticleCard from '@/pages/home/Partials/AppHomeArticleCard.vue';
-
+    import AppPagination from '@/components/AppPagination.vue'
 </script>
