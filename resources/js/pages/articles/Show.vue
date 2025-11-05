@@ -8,7 +8,12 @@
 
         <article class="bg-white border-4 border-black">
 
-            <img :src="usePage().props.article.image" alt="" class="w-full object-cover h-96 border-b-4 border-black"/>
+            <img 
+                v-if="usePage().props.article.image" 
+                :src="usePage().props.article.image" 
+                alt="" 
+                class="w-full object-cover h-96 border-b-4 border-black"
+            />
 
             <header class="w-full justify-between flex flex-wrap md:flex-nowrap gap-4 items-center p-6 pb-0  text-gray-500">
                 <div class="w-full flex gap-1">
