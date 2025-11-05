@@ -3,6 +3,7 @@
              
         <div class="border-2 border-black bg-white shadow-md hover:shadow-xl transition-shadow">
             <img 
+                v-if="props.article.image"
                 :src="props.article.image" :alt="props.article.title" 
                 class="w-full object-cover border-b-2 border-black" 
                 :class="props.minimize ? 'h-32' : 'h-64'"
@@ -17,7 +18,7 @@
                 <h3 class="font-bold leading-tight truncate" :class="props.minimize ? 'text-lg' : 'text-2xl'">
                     {{ props.article.title }}
                 </h3>
-                <p v-if="!props.minimize && props.article.summary" class="text-sm leading-relaxed">
+                <p v-if="!props.minimize && props.article.summary" class="text-sm leading-relaxed min-h-25">
                     {{ truncateSummary }}
                 </p>
                 <div class="flex justify-between items-center text-xs text-gray-600 pt-3 border-t">
