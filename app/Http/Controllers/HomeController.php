@@ -33,7 +33,7 @@ class HomeController extends Controller
             });
         }
        
-        $articles = $query->orderByDesc('created_at')->paginate(10);
+        $articles = $query->orderByDesc('created_at')->paginate(10)->withQueryString();
         
         return Inertia::render('home/Index', [
             'articles' => $articles,
