@@ -26,7 +26,7 @@ return new class extends Migration
             // indexes for search
             $table->index('category_id'); // category selection in nav
             $table->index('created_at'); // orderByDesc('created_at')
-            $table->fullText(['title', 'summary', 'content']); // get triggered in multiple LIKE searches
+            //$table->fullText(['title', 'summary', 'content']); // get triggered in multiple LIKE searches
         });
     }
 

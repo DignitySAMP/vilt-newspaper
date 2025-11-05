@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            // indexes for search
+            $table->index('created_at'); // orderByDesc('created_at')
+            //$table->fullText(['name', 'email']); // get triggered in multiple LIKE searches
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

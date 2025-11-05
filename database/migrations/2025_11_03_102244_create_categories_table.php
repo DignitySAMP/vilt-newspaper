@@ -19,7 +19,7 @@ return new class extends Migration
 
             // indexes for search
             $table->index('created_at'); // orderByDesc('created_at')
-            $table->fullText(['title', 'description']); // get triggered in multiple LIKE searches
+            //$table->fullText(['title', 'description']); // get triggered in multiple LIKE searches
         });
     }
 
