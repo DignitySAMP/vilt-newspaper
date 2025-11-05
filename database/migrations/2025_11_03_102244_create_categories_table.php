@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('title')->index();
             $table->string('description');
             $table->timestamps();
+
+            // indexes for search
+            $table->index('created_at'); // orderByDesc('created_at')
+            $table->fullText(['title', 'description']); // get triggered in multiple LIKE searches
         });
     }
 
