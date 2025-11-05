@@ -14,9 +14,8 @@ class ArticleFactory extends Factory
 
     public function definition(): array
     {
-        $title = $this->faker->unique()->sentence(6);
         return [
-            'title' => $title,
+            'title' =>  $this->faker->unique()->sentence(6),
             'content' => $this->faker->paragraphs(6, true),
             'summary' => $this->faker->paragraph(),
         ];

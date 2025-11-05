@@ -80,7 +80,10 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-
+        Article::factory(25)->create([
+            'category_id' => Category::inRandomOrder()->first(),
+            'user_id' => User::inRandomOrder()->first()
+        ]);
         
     }
 }

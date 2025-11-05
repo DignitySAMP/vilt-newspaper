@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content'); // markdown formatting
             $table->text('summary'); // used in article cards
-            $table->text('image'); // link to resource, either by uploading to website or cross linking
+            $table->text('image')->nullable(); // link to resource, either by uploading to website or cross linking
             $table->timestamps();
         });
     }
