@@ -18,6 +18,7 @@
             <span>{{ props.article.read_time }} min read</span>
         </div>
         <img 
+            v-if="props.article.image"
             :src="props.article.image" 
             :alt="props.article.title" 
             class="w-full h-48 object-center md:h-96 md:object-cover border-2 border-black" 

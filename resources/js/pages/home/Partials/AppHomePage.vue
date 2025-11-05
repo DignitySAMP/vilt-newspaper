@@ -1,13 +1,4 @@
 <template>
-    <div v-if="route().params?.category && route().params?.category !== null" class="px-4 py-2 w-full flex items-center justify-between border-2 border-amber-400 bg-amber-50">
-        <span>
-            Currently only showing articles under the <span class="lowercase font-bold underline">{{ route().params.category }}</span> category.
-        </span>
-        <Link :href="route('home')" class="font-bold underline uppercase text-xs cursor-pointer">
-            Reset
-        </Link>
-    </div>
-
     <div v-if="usePage().props.articles.data.length > 0" class="flex flex-col gap-8">
         <AppHomeBreakingNews  :article="usePage().props.articles.data[0]" />
 
