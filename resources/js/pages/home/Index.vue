@@ -3,6 +3,9 @@
         <AppHomeSearch/>
         <AppHomePage v-if="currentPage === 1"/>
         <AppListedPage v-else-if="currentPage > 1"/>
+        <div v-if="usePage().props.articles.data.length < 1" class="w-full min-h-190">
+            <span>No articles found.</span>
+        </div>
     </AppLayout>
 </template>
 <script setup lang="js">

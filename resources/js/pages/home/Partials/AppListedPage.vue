@@ -7,9 +7,6 @@
             :key="article.id"
         />
     </div>
-    <div v-else class="min-h-190">
-        <span>There are no articles under this category.</span>
-    </div>
 
     <AppPagination :links="usePage().props.articles"/>
 
