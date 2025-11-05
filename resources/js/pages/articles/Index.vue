@@ -14,15 +14,24 @@
             </Link>
         </div>
 
+        <IndexSearch/>
+
         <div class="flex flex-col gap-4">
-            <div v-for="article in usePage().props.articles" :key="article.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
+            <div v-for="article in usePage().props.articles.data" :key="article.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
                 <div class="flex flex-col gap-2">
                     <span class="font-semibold">
                         {{ article.title }}
                     </span>
-                    <span class="text-sm text-gray-600">
-                        {{ article.category?.title }}
-                    </span>
+                    <div class="flex items-center gap-1 text-sm text-gray-600">
+                        <span>Posted by</span>      
+                        <span class="font-bold">
+                            {{ article.author?.name }}
+                        </span>
+                        <span>under</span>               
+                        <span class="font-bold">
+                            {{ article.category?.title }}
+                        </span>
+                    </div>
                 </div>
 
                 <div class="flex w-full md:w-fit gap-2">
@@ -41,11 +50,15 @@
             </div>
         </div>
 
+        <AppPagination :links="usePage().props.articles"/>
+
     </AdminLayout>
     
 </template>
 <script setup lang="js">
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import AppButton from '@/components/AppButton.vue'
+import AppPagination from '@/components/AppPagination.vue'
 import { Link, usePage } from '@inertiajs/vue3';
+import IndexSearch from '@/pages/articles/Partials/IndexSearch.vue';
 </script>

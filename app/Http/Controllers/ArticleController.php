@@ -25,11 +25,22 @@ class ArticleController extends Controller implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::query()->latest()->with(['author', 'category'])->get();
+        $query = Article::with(['author:id,name', 'category:id,title']);
+
+        if ($request->has('search') && !empty(trim($request->get('search')))) {
+            $search = trim($request->get('search'));
+            $query->where('title', 'like', "%{$search}%");
+        }
+        
+        $articles = $query->orderByDesc('created_at')->paginate(10)->withQueryString();
+
         return Inertia::render('articles/Index', [
             'articles' => $articles,
+            'search' => [
+                'term' => $request->get('search'),
+            ]
         ]);
     }
 
