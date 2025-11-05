@@ -1,5 +1,5 @@
 <template>
-    <div v-if="route().params?.category && route().params?.category !== null" class="px-4 py-2 w-full flex items-center justify-between border-2 border-amber-400 bg-amber-50">
+    <div v-if="route().params?.category && route().params?.category !== null" class="px-4 py-2 w-full flex flex-col md:flex-row gap-2 md:items-center md:justify-between border-2 border-amber-400 bg-amber-50">
         <span>
             Currently only showing articles under the <span class="lowercase font-bold underline">{{ route().params.category }}</span> category.
         </span>
