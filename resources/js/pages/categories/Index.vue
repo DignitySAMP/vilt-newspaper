@@ -13,8 +13,11 @@
             </Link>
         </div>
 
+
+        <IndexSearch/>
+
         <div class="flex flex-col gap-4">
-            <div v-for="category in categories" :key="category.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
+            <div v-for="category in usePage().props.categories.data" :key="category.id" class="flex flex-col md:flex-row justify-between border-4 border-black bg-white p-4">
 
                 <div class="flex flex-col">
                     
@@ -42,13 +45,16 @@
             </div>
         </div>
 
+        <AppPagination :links="usePage().props.categories"/>
     </AdminLayout>
     
 </template>
 <script setup lang="js">
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import AppButton from '@/components/AppButton.vue'
+import IndexSearch from '@/pages/categories/partials/IndexSearch.vue';
 import { Link, usePage } from '@inertiajs/vue3';
+import AppPagination from '@/components/AppPagination.vue'
 
 const props = defineProps({
     categories: {

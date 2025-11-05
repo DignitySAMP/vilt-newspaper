@@ -23,10 +23,22 @@ class CategoryController extends Controller implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $query = Category::select(['id', 'title', 'description']);
+
+        if ($request->has('search') && !empty(trim($request->get('search')))) {
+            $search = trim($request->get('search'));
+            $query->where('title', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+        }
+
+        $categories = $query->orderByDesc('created_at')->paginate(10)->withQueryString();
         return Inertia::render('categories/Index',[
-            'category' => Category::select(['id', 'title', 'description'])->get()
+            'categories' => $categories,
+            'search' => [
+                'term' => $request->get('search'),
+            ]
         ]);
     }
 
