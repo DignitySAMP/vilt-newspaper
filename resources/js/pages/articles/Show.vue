@@ -9,8 +9,8 @@
         <article class="bg-white border-4 border-black">
 
             <img 
-                v-if="usePage().props.article.image" 
-                :src="usePage().props.article.image" 
+                v-if="usePage().props.article.image_url" 
+                :src="usePage().props.article.image_url" 
                 alt="" 
                 class="w-full object-cover h-96 border-b-4 border-black"
             />

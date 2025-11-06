@@ -28,17 +28,16 @@
                 :disabled="form.processing"
                 rows="4"
             />
-            <AppInput
-                label="Image URL"
+            <AppUpload
+                label="Upload a file you wish to use"
                 name="image"
-                placeholder="https://..."
-                type="text"
                 v-model="form.image"
                 :errors="form.errors.image"
                 :disabled="form.processing"
             />
 
             <AppSelect
+                label="Select category"
                 name="select_category"
                 v-model="form.category"
                 :errors="form.errors.category"
@@ -67,12 +66,13 @@
     import AppInput from '@/components/AppInput.vue';
     import AppTextarea from '@/components/AppTextarea.vue';
     import AppButton from '@/components/AppButton.vue';
+    import AppUpload from '@/components/AppUpload.vue';
 
     const form = useForm({
         title: '',
         content: '',
         summary: '',
-        image: '',
+        image: null,
         category: null,
     });
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class Article extends Model
 {
@@ -15,7 +16,7 @@ class Article extends Model
         'user_id', 'category_id', 'title', 'content', 'summary', 'image'
     ];
     protected $appends = [
-        'read_time'
+        'read_time', 'image_url'
     ];
 
     public function author(): BelongsTo {
@@ -38,4 +39,21 @@ class Article extends Model
         return $minutes;
     }
     
+    public function getImageUrlAttribute()
+    {
+        if (!$this->image) {
+            return null;
+        }
+    
+        // theoretically we dont need to check for the image url here, but for demo purposes in conjunction with db:seed, we add support for hardcoded image urls...
+        if (filter_var($this->image, FILTER_VALIDATE_URL)) {
+            return $this->image;
+        }
+
+        else if (Storage::disk('public')->exists($this->image)) {
+            return asset('storage/' . $this->image);
+        }
+        
+        return null;
+    }
 }

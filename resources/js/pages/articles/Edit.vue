@@ -28,11 +28,10 @@
                 :disabled="form.processing"
                 rows="4"
             />
-            <AppInput
-                label="Image URL"
+
+            <AppUpload
+                label="Upload a file you wish to use"
                 name="image"
-                placeholder="https://..."
-                type="text"
                 v-model="form.image"
                 :errors="form.errors.image"
                 :disabled="form.processing"
@@ -80,22 +79,25 @@ import AppTextarea from '@/components/AppTextarea.vue';
 import AppButton from '@/components/AppButton.vue';
 import AppSelect from '@/components/AppSelect.vue';
 import DeleteArticle from '@/pages/articles/Delete.vue';
+import AppUpload from '@/components/AppUpload.vue';
 import { ref } from 'vue';
 
 const showDeleteModal = ref(false);
 
 const form = useForm({
+    _method: 'patch',
     title: usePage().props.article.title,
     content: usePage().props.article.content,
     summary: usePage().props.article.summary,
-    image: usePage().props.article.image,
+    image: null,
     category: usePage().props.article.category_id
 });
 
 
 const submit = () => {
-    form.patch(route('article.update', usePage().props.article.id), {
+    form.post(route('article.update', usePage().props.article.id), { // we spoof this as a post, while it remains a patch
         preserveScroll: true,
+        forceFormData: true,
         onSuccess: () => form.reset(),
         onError: (error) => console.error(error),
     });

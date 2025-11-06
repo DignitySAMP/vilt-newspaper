@@ -9,6 +9,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller implements HasMiddleware
 {
@@ -61,24 +62,34 @@ class ArticleController extends Controller implements HasMiddleware
      */
     public function store(Request $request)
     {
+
         $validate = $request->validate([
             'title' => 'required|string|min:5|max:128',
             'content' => 'required|string|min:32|max:2048',
             'summary' => 'required|string|min:8|max:150',
-            'image' => 'required|string|min:8|max:150',
+            'image' => 'required|file|image|max:1500',
             'category' => 'required|integer|exists:categories,id'
         ]);
 
         $category = Category::findOrFail($validate['category']);
 
-        Article::create([
+        $article = Article::create([
             'user_id' => Auth::user()->id,
             'category_id' => $category->id,
             'title' => $validate['title'],
             'content' => $validate['content'],
             'summary' => $validate['summary'],
-            'image' => $validate['image'],
+            'image' => null, // updated after successful storage
         ]);
+    
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $imagePath = $request->file('image')->storeAs(
+            path: 'articles/' . $article->id,
+            name: 'image.' . $extension,
+            options: 'public'
+        );
+    
+        $article->update(['image' => $imagePath]);
 
         return redirect()->route('article.index')->with('message', 'Article has been created.');
     }
@@ -113,25 +124,48 @@ class ArticleController extends Controller implements HasMiddleware
             'title' => 'required|string|min:5|max:128',
             'content' => 'required|string|min:32|max:2048',
             'summary' => 'required|string|min:8|max:150',
-            'image' => 'required|string|min:8|max:150',
+            'image' => 'nullable|file|image|max:1500',
             'category' => 'required|integer|exists:categories,id',
         ]);
 
         $category = Category::findOrFail($validate['category']);
 
-        $article->update([
-            'title' => $validate['title'],
-            'content' => $validate['content'],
-            'summary' => $validate['summary'],
-            'image' => $validate['image'],
-            'category_id' => $category->id
-        ]);
+        // replace the image if a new one is provided
+        if ($request->hasFile('image')) {
 
-        $article->save();
+            if ($article->image && Storage::disk('public')->exists($article->image)) {
+                Storage::disk('public')->delete($article->image);
+            }
+
+
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $imagePath = $request->file('image')->storeAs(
+                path: 'articles/' . $article->id,
+                name: 'image.' . $extension,
+                options: 'public'
+            );
+
+            $article->update([
+                'title' => $validate['title'],
+                'content' => $validate['content'],
+                'summary' => $validate['summary'],
+                'image' => $imagePath,
+                'category_id' => $category->id
+            ]);
+        } else {
+
+            // just update the regular article if no image change is passed
+            $article->update([
+                'title' => $validate['title'],
+                'content' => $validate['content'],
+                'summary' => $validate['summary'],
+                'category_id' => $category->id
+            ]);
+        }
 
         return redirect()->route('article.index')->with('message', 'Article has been updated.');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */

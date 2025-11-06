@@ -3,8 +3,8 @@
              
         <div class="border-2 border-black bg-white shadow-md hover:shadow-xl transition-shadow">
             <img 
-                v-if="props.article.image"
-                :src="props.article.image" :alt="props.article.title" 
+                v-if="props.article.image_url"
+                :src="props.article.image_url" :alt="props.article.title" 
                 class="w-full object-cover border-b-2 border-black" 
                 :class="props.minimize ? 'h-32' : 'h-64'"
             />
