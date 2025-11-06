@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -83,11 +84,18 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($tmpArticleImages as $imageUrl) {
-            Article::factory()->create([
+            $article = Article::factory()->create([
                 'image' => $imageUrl,
                 'user_id' => User::inRandomOrder()->first(),
                 'category_id' => Category::inRandomOrder()->first()
             ]);
+
+            for($i = 0; $i < rand(5, 25); $i ++) {
+            Comment::factory()->create([
+                'article_id' => $article,
+                'user_id' => User::inRandomOrder()->first(),
+            ]);
+            }
         }
     }
 }

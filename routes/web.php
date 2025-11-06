@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -32,6 +33,7 @@ Route::group(['middleware' => ['auth', 'verified', 'password.confirm']], functio
         Route::resource('article', ArticleController::class)->except(['show']);
         Route::resource('category', CategoryController::class);
         Route::resource('users', UserController::class)->except('show');
+        Route::resource('comment', CommentController::class)->only('store', 'update', 'destroy');
     });
 });
 

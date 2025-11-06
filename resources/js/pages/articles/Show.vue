@@ -36,6 +36,8 @@
                 <div class="prose max-w-none whitespace-pre-line">{{ usePage().props.article.content }}</div>
             </main>
         </article>
+
+        <ListComments :comments="usePage().props.comments"/>
     </AppLayout>
 </template>
 <script setup lang="js">
@@ -43,5 +45,6 @@ import { Link, usePage } from '@inertiajs/vue3';
 import AppLayout from '@/layouts/AppLayout.vue';
 import AppSeparator from '@/components/AppSeparator.vue'
 import AppButton from '@/components/AppButton.vue';
+import ListComments from '@/pages/comments/Index.vue';
 </script>
 

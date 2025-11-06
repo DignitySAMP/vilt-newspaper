@@ -90,6 +90,7 @@ class ArticleController extends Controller implements HasMiddleware
     {
         return Inertia::render('articles/Show', [
             'article' => $article->load(['author', 'category']),
+            'comments' => $article->comment()->with('author')->orderBy('created_at', 'desc')->paginate(10)
         ]);
     }
 
