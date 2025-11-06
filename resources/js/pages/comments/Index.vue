@@ -26,7 +26,7 @@
 
     const props = defineProps({
         comments: {
-            type: Array,
+            type: Object,
             required: true
         }
     });
