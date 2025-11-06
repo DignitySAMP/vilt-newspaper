@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -12,17 +13,10 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'verified', 'password.confirm']], function () { 
-    
-    Route::get('/user/two-faction-setup', function() {
-        return Inertia::render( 'auth/TwoFactorSetup', [
-            'mfa_enabled' => Auth::user()->two_factor_confirmed_at !== null
-        ]);
-    })->name('two-factor.setup');
 
-
-    Route::get('/profile', function() {
-        return Inertia::render( 'Welcome');
-    })->name('profile');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::patch('/profile/details', [ProfileController::class, 'edit_details'])->name('profile.details');
+    Route::patch('/profile/password', [ProfileController::class, 'edit_password'])->name('profile.password');
 
     Route::group(['middleware' => ['role:publisher|writer|administrator']], function () { 
         

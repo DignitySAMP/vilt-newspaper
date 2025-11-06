@@ -100,35 +100,6 @@
                 color: "text-red-600",
             },
         )
-/*
- <Link 
-                    :href="route('home')" 
-                    class="hover:underline uppercase text-blue-500"
-                >
-                    Home
-                </Link>  
-                <Link 
-                    :href="route('admin')" 
-                    class="hover:underline uppercase"
-                    :class="props.active_tab === 'home' ? 'font-bold underline' : ''"
-                >
-                    Dashboard
-                </Link>         
-
-
-                <Link 
-                    :href="route('users.index')" 
-                    class="hover:underline uppercase"
-                    :class="props.active_tab === 'users' ? 'font-bold underline' : ''"
-                >
-                    Users
-                </Link>
-
-                <Link :href="route('logout')" method="POST" class="text-sm font-semibold text-red-700 tracking-wide uppercase hover:underline">
-                    Logout
-                </Link>
-*/
-
     });
 </script>
 

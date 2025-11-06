@@ -1,9 +1,11 @@
 <template>
-    <AppGuestLayout>
-
+    <article class="bg-white border-4 border-black p-6 flex flex-col gap-4">
+        <span class="text-lg font-bold tracking-widest">
+            Two Factor Authentication
+        </span>
 
         <div v-if="usePage().props.mfa_enabled" class="flex flex-col gap-4 text-gray-700">
-            <span v-if="confirmed" class="text-sm px-4 py-2 border border-green-300 bg-green-100 text-green-800 rounded">
+            <span v-if="confirmed" class="w-full px-4 py-2 bg-amber-100 border-4 border-amber-300 text-amber-700">
                 You have enabled two factor authentication.
             </span>
 
@@ -25,13 +27,13 @@
             >
                 Enable 2FA
             </AppButton>
-         
+            
             <div v-if="qrCode" class="flex flex-col gap-2">
-                <span class="text-lg font-semibold">Scan the QR code</span>
+                <span class="text-lg font-semibold">1. Scan the QR code:</span>
                 <div v-html="qrCode"></div>
 
+                <span class="text-lg font-semibold">2. Enter the code from your authenticator:</span>
                 <AppInput
-                    label="Authentication Code"
                     name="code"
                     placeholder="Code from your authenticator"
                     type="text"
@@ -40,36 +42,32 @@
                     autocomplete="new-password"
                     :disabled="form.processing"
                 />
-
+                <span class="text-lg font-semibold">3. Confirm the code:</span>
                 <AppButton
                     name="btn_confirm_2fa"
                     type="button"
                     @click="submitConfirm"
                     :disabled="form.processing"
                 >
-                    Confirm 2FA
+                    Activate 2FA
                 </AppButton>
 
                 <span v-if="form.errors.confirmTwoFactorAuthentication" v-html="form.errors.confirmTwoFactorAuthentication.code" class="text-sm text-red-700"/>
             </div>
 
             <div v-if="recoveryCodes?.length" class="flex flex-col gap-2">
-                <div class="flex items-center gap-1">
-                    <span class="text-lg font-semibold">Recovery Codes</span>
-                    <span class="text-xs">(save these)</span>
-                </div>
-                
-                <pre class="bg-gray-800 text-gray-100 whitespace-pre p-4 rounded"><div v-for="code in recoveryCodes" :key="code">{{ code }}</div></pre>
+
+                <span class="text-lg font-semibold">4. Save your recovery codes:</span>
+                <pre class="bg-neutral-800 text-gray-100 whitespace-pre p-4 rounded"><div v-for="code in recoveryCodes" :key="code">{{ code }}</div></pre>
             </div>
         </div>
-    </AppGuestLayout>
+    </article>
 </template>
 
 <script setup lang="js">
 import { ref } from 'vue';
 import { useForm, usePage } from '@inertiajs/vue3';
 import axios from 'axios';
-import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
 import AppButton from '@/components/AppButton.vue';
 import AppInput from '@/components/AppInput.vue';
 

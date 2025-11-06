@@ -1,6 +1,6 @@
 <template>
 
-<div class="flex flex-col gap-2 w-full">
+    <div class="flex flex-col gap-2 w-full">
     
         <span class="text-2xl font-bold tracking-widest">
             Comments
