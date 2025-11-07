@@ -46,9 +46,55 @@ php artisan storage:link
 ## ✨ Screenshots
 
 <details>
-  <summary> 🖼️ Click to view screenshots</summary>
+  <summary>Click to view screenshots</summary>
   <br>
-  tba
+    <p align="center">
+        Authentication
+    </p>
+    <p align="center">
+        <img src=".screenshots/screencapture-localhost-8000-login-2025-11-07-13_51_36.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-register-2025-11-07-13_51_20.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-forgot-password-2025-11-07-13_51_50.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-profile-2025-11-07-13_52_59.png" width="22%" />
+    </p>
+    <p align="center">
+        Home Page
+    </p>
+    <p align="center">
+        <img src=".screenshots/screencapture-localhost-8000-2025-11-07-13_52_17.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-2025-11-07-13_52_28.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-2025-11-07-13_52_40.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-article-20-2025-11-07-13_55_08.png" width="30%" />>
+    </p>
+     <p align="center">
+        Admin Panel
+    </p>
+    <p align="center">
+        <img src=".screenshots/screencapture-localhost-8000-article-20-edit-2025-11-07-13_54_03.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-user-confirm-password-2025-11-07-13_52_08.png" width="35%" />
+    </p>
+    <p align="center">
+        Admin Panel: Articles
+    </p>
+    <p align="center">
+        <img src=".screenshots/screencapture-localhost-8000-article-2025-11-07-13_53_28.png" width="28.7%" />
+        <img src=".screenshots/screencapture-localhost-8000-article-20-edit-2025-11-07-13_54_03.png" width="35%" />
+    </p>
+    <p align="center">
+        Admin Panel: Categories
+    </p>
+    <p align="center">
+        <img src=".screenshots/screencapture-localhost-8000-category-2025-11-07-13_54_12.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-category-2025-11-07-13_54_12.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-category-5-edit-2025-11-07-13_54_32.png" width="35%" />
+    </p>
+    <p align="center">
+        Admin Panel: Users
+    </p>
+    <p align="center">
+        <img src=".screenshots/screencapture-localhost-8000-users-2025-11-07-13_55_21.png" width="35%" />
+        <img src=".screenshots/screencapture-localhost-8000-users-6-edit-2025-11-07-13_55_32.png" width="35%" />
+    </p>
 </details>
 
 
