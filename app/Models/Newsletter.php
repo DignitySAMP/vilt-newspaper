@@ -28,7 +28,7 @@ class Newsletter extends Model
     
         foreach ($newsletters as $newsletter) {
             if ($newsletter->user && $newsletter->user->email) {
-                Mail::to($newsletter->user->email)->send(
+                Mail::to($newsletter->user->email)->send( // TODO: ->queue possible when under load
                     new NewsletterMail(
                         $subject, 
                         $content, 
