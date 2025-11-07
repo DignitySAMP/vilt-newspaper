@@ -41,7 +41,7 @@
 
     const subscriptionState = ref(usePage().props.newsletter ? true : false);
     const form = useForm({
-        email: usePage().props.auth.email ?? null
+        email: usePage().props.auth?.email ?? null
     });
 
     const subscribe = () => {
