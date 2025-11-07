@@ -1,5 +1,5 @@
 <template>
-    <article class="bg-white border-4 border-black p-6 flex flex-col gap-4">
+    <form @submit.prevent class="bg-white border-4 border-black p-6 flex flex-col gap-4">
         <span class="text-lg font-bold tracking-widest">
             Edit Profile Details
         </span>
@@ -27,7 +27,7 @@
             Update Details
         </AppButton>
 
-    </article>
+    </form>
 </template>
 <script setup lang="js">
     import { useForm, usePage } from '@inertiajs/vue3';

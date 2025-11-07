@@ -31,7 +31,7 @@
     </AdminLayout>
 </template>
 <script setup lang="js">
-    import { useForm, usePage, Link } from '@inertiajs/vue3';
+    import { useForm, Link } from '@inertiajs/vue3';
 
     import AdminLayout from '@/layouts/AdminLayout.vue';
 

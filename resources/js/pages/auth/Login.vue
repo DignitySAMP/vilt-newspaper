@@ -56,24 +56,25 @@
 </template>
 <script setup lang="js">
 
-import { useForm, Link } from '@inertiajs/vue3';
-import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
-import AppButton from '@/components/AppButton.vue';
-import AppInput from '@/components/AppInput.vue';
-import AppCheckbox from '@/components/AppCheckbox.vue';
+    import { useForm, Link } from '@inertiajs/vue3';
+    import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
 
-const form = useForm({
-    email: '', // OR username: ''
-    password: '',
-    remember: false
-})
+    import AppButton from '@/components/AppButton.vue';
+    import AppInput from '@/components/AppInput.vue';
+    import AppCheckbox from '@/components/AppCheckbox.vue';
 
-const submit = () => {
-    form.post(route('login.store'), {
-        preserveScroll: true,
-        onSuccess: () => form.reset('password'),
-        onError: (error) => console.error(error),
-        onFinish: () => form.reset()
-    });
-}
+    const form = useForm({
+        email: '', // OR username: ''
+        password: '',
+        remember: false
+    })
+
+    const submit = () => {
+        form.post(route('login.store'), {
+            preserveScroll: true,
+            onSuccess: () => form.reset('password'),
+            onError: (error) => console.error(error),
+            onFinish: () => form.reset()
+        });
+    }
 </script>

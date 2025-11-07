@@ -18,9 +18,9 @@
     </div>
 </template>
 <script setup lang="js">
-
     import { onMounted, ref, watch } from 'vue';
     import { router, usePage } from '@inertiajs/vue3';
+
     import IconSearch from '@/icons/IconSearch.vue';
     import IconSearchReset from '@/icons/IconSearchReset.vue';
     

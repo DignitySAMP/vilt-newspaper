@@ -14,9 +14,11 @@
     import { usePage } from '@inertiajs/vue3';
 
     import AppLayout from '@/layouts/AppLayout.vue';
+    
     import AppHomeSearch from '@/pages/home/Partials/AppHomeSearch.vue';
     import AppHomePage from '@/pages/home/Partials/AppHomePage.vue';
     import AppListedPage from '@/pages/home/Partials/AppListedPage.vue';
+    
     import AppNewsletter from '@/components/AppNewsletter.vue';
 
     const currentPage = usePage().props.articles.current_page;

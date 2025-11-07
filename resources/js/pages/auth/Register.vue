@@ -64,26 +64,26 @@
     </AppGuestLayout>
 </template>
 <script setup lang="js">
-import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
-import { useForm, Link } from '@inertiajs/vue3';
-import AppButton from '@/components/AppButton.vue';
-import AppInput from '@/components/AppInput.vue';
+    import { useForm, Link } from '@inertiajs/vue3';
+    import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
 
+    import AppButton from '@/components/AppButton.vue';
+    import AppInput from '@/components/AppInput.vue';
 
-const form = useForm({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: ''
-})
+    const form = useForm({
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: ''
+    })
 
-const submit = () => {
-    form.post(route('register.store'), {
-        preserveScroll: true,
-        onSuccess: () => form.reset('password'),
-        onError: (error) => console.error(error),
-        onFinish: () => form.reset()
-    });
-}
+    const submit = () => {
+        form.post(route('register.store'), {
+            preserveScroll: true,
+            onSuccess: () => form.reset('password'),
+            onError: (error) => console.error(error),
+            onFinish: () => form.reset()
+        });
+    }
 
 </script>

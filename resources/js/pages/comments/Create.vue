@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="showCreateCommentBox">
+    <form @submit.prevent v-if="showCreateCommentBox">
         <AppTextarea
             label="Post a new comment"
             name="content"
@@ -20,7 +20,7 @@
                 Post comment
             </AppButton>
         </div>
-    </div>
+    </form>
     <div class="w-full flex justify-end"  v-if="!showCreateCommentBox">
         <AppButton name="btn_toggle_create_comment" @click="showCreateCommentBox = !showCreateCommentBox">
             Compose new comment

@@ -45,38 +45,35 @@
     </AppGuestLayout>
 </template>
 <script setup lang="js">
+    import { useForm } from '@inertiajs/vue3';
+    import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
 
-import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
-import { useForm } from '@inertiajs/vue3';
-import AppButton from '@/components/AppButton.vue';
-import AppInput from '@/components/AppInput.vue';
+    import AppButton from '@/components/AppButton.vue';
+    import AppInput from '@/components/AppInput.vue';
 
-const props = defineProps({
-    token: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    
-})
+    const props = defineProps({
+        token: {
+            type: String,
+            required: true
+        },
+        email: {
+            type: String,
+            required: true
+        },
+    })
 
+    const form = useForm({
+        email: props.email, 
+        password: '',
+        password_confirmation: ''
+    })
 
-const form = useForm({
-    email: props.email, 
-    password: '',
-    password_confirmation: ''
-})
-
-const submit = () => {
-    form.post(route('password.store'), {
-        preserveScroll: true,
-        onSuccess: () => form.reset('password'),
-        onError: (error) => console.error(error),
-        onFinish: () => form.reset()
-    });
-}
-
+    const submit = () => {
+        form.post(route('password.store'), {
+            preserveScroll: true,
+            onSuccess: () => form.reset('password'),
+            onError: (error) => console.error(error),
+            onFinish: () => form.reset()
+        });
+    }
 </script>

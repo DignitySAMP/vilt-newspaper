@@ -52,9 +52,11 @@
     </AdminLayout>
 </template>
 <script setup lang="js">
-import AdminLayout from '@/layouts/AdminLayout.vue';
-import AppButton from '@/components/AppButton.vue'
-import AppPagination from '@/components/AppPagination.vue'
-import { Link, usePage } from '@inertiajs/vue3';
-import IndexSearch from '@/pages/users/partials/IndexSearch.vue';
+    import { Link, usePage } from '@inertiajs/vue3';
+    import AdminLayout from '@/layouts/AdminLayout.vue';
+
+    import IndexSearch from '@/pages/users/partials/IndexSearch.vue';
+
+    import AppButton from '@/components/AppButton.vue'
+    import AppPagination from '@/components/AppPagination.vue'
 </script>

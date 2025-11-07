@@ -32,6 +32,7 @@
 
     import { onMounted, ref, watch } from 'vue';
     import { router, Link, usePage } from '@inertiajs/vue3';
+    
     import IconSearch from '@/icons/IconSearch.vue';
     import IconSearchReset from '@/icons/IconSearchReset.vue';
     

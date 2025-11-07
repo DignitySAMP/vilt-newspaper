@@ -53,31 +53,29 @@
 </template>
 
 <script setup>
-import AppGuestLayout from '@/layouts/AppGuestLayout.vue'
 import { ref } from 'vue'
 import { useForm } from '@inertiajs/vue3'
+
+import AppGuestLayout from '@/layouts/AppGuestLayout.vue'
 
 import AppButton from '@/components/AppButton.vue'
 import AppInput from '@/components/AppInput.vue'
 
-const recoveryMode = ref(false)
-
+const recoveryMode = ref(false);
 const form = useForm({
     code: '',
     recovery_code: '',
 })
 
-// Submit authenticator app code
 const submitCode = () => {
     form.post(route('two-factor.login'), {
         onFinish: () => form.reset('code'),
-    })
+    });
 }
 
-// Submit recovery code
 const submitRecoveryCode = () => {
     form.post(route('two-factor.login'), {
         onFinish: () => form.reset('recovery_code'),
-    })
+    });
 }
 </script>

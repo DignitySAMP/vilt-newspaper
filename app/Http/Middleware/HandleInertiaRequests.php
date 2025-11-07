@@ -2,11 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Category;
-use App\Models\Newsletter;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
+use App\Models\Category;
+use App\Models\Newsletter;
 
 class HandleInertiaRequests extends Middleware
 {

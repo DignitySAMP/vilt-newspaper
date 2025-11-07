@@ -72,15 +72,18 @@
     </AdminLayout>
 </template>
 <script setup lang="js">
-import AdminLayout from '@/layouts/AdminLayout.vue';
+
+import { ref } from 'vue';
 import { useForm, usePage, Link } from '@inertiajs/vue3';
+
+import AdminLayout from '@/layouts/AdminLayout.vue';
+import DeleteArticle from '@/pages/articles/Delete.vue';
+
 import AppInput from '@/components/AppInput.vue';
 import AppTextarea from '@/components/AppTextarea.vue';
 import AppButton from '@/components/AppButton.vue';
 import AppSelect from '@/components/AppSelect.vue';
-import DeleteArticle from '@/pages/articles/Delete.vue';
 import AppUpload from '@/components/AppUpload.vue';
-import { ref } from 'vue';
 
 const showDeleteModal = ref(false);
 

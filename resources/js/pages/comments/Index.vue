@@ -20,9 +20,11 @@
 </template>
 <script setup lang="js">
     import { usePage } from '@inertiajs/vue3';
-    import AppPagination from '@/components/AppPagination.vue'
+    
     import CreateComment from '@/pages/comments/Create.vue'
     import ShowComment from '@/pages/comments/Show.vue'
+
+    import AppPagination from '@/components/AppPagination.vue'
 
     const props = defineProps({
         comments: {

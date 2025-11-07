@@ -77,10 +77,10 @@
 
     import AdminLayout from '@/layouts/AdminLayout.vue';
     import DeleteUser from '@/pages/users/Delete.vue'
+    import EditRoles from '@/pages/users/EditRoles.vue';
 
     import AppInput from '@/components/AppInput.vue';
     import AppButton from '@/components/AppButton.vue';
-    import EditRoles from '@/pages/users/EditRoles.vue';
 
     const showDeleteModal = ref(false);
 

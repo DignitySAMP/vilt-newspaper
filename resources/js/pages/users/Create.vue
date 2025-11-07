@@ -63,9 +63,10 @@
     import { useForm, usePage, Link } from '@inertiajs/vue3';
 
     import AdminLayout from '@/layouts/AdminLayout.vue';
+    import EditRoles from '@/pages/users/EditRoles.vue';
+
     import AppInput from '@/components/AppInput.vue';
     import AppButton from '@/components/AppButton.vue';
-    import EditRoles from '@/pages/users/EditRoles.vue';
 
     const form = useForm({
         name: '',

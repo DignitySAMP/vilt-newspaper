@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use Spatie\Permission\Models\Role;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rule;
+
+use Inertia\Inertia;
+use App\Models\User;
+
 
 class UserController extends Controller
 {

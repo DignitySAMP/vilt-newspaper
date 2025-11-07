@@ -24,9 +24,10 @@
     </div>
 </template>
 <script setup lang="js">
-    import { usePage, Link } from '@inertiajs/vue3';
+    import { usePage } from '@inertiajs/vue3';
 
     import AppHomeBreakingNews from '@/pages/home/Partials/AppHomeBreakingNews.vue';
     import AppHomeArticleCard from '@/pages/home/Partials/AppHomeArticleCard.vue';
+
     import AppPagination from '@/components/AppPagination.vue';
 </script>

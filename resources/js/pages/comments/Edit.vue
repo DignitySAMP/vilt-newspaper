@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <form @submit.prevent>
         <AppTextarea
             name="content"
             placeholder="Write here..."
@@ -31,7 +31,7 @@
 
 
         </div>
-    </div>
+    </form>
 </template>
 <script setup lang="js">
     import { useForm } from '@inertiajs/vue3';
@@ -39,6 +39,7 @@
     import DeleteComment from '@/pages/comments/Delete.vue'
     import AppTextarea from '@/components/AppTextarea.vue'
     import AppButton from '@/components/AppButton.vue'
+    
     const emit = defineEmits(['close-comment']);
 
     const props = defineProps({

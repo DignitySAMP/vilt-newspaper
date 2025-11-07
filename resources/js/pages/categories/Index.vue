@@ -13,7 +13,6 @@
             </Link>
         </div>
 
-
         <IndexSearch/>
 
         <div class="flex flex-col gap-4">
@@ -50,16 +49,18 @@
     
 </template>
 <script setup lang="js">
-import AdminLayout from '@/layouts/AdminLayout.vue';
-import AppButton from '@/components/AppButton.vue'
-import IndexSearch from '@/pages/categories/partials/IndexSearch.vue';
-import { Link, usePage } from '@inertiajs/vue3';
-import AppPagination from '@/components/AppPagination.vue'
+    import { Link, usePage } from '@inertiajs/vue3';
 
-const props = defineProps({
-    categories: {
-        type: Array,
-        required: true
-    }
-});
+    import AdminLayout from '@/layouts/AdminLayout.vue';
+    import IndexSearch from '@/pages/categories/partials/IndexSearch.vue';
+
+    import AppButton from '@/components/AppButton.vue'
+    import AppPagination from '@/components/AppPagination.vue'
+
+    const props = defineProps({
+        categories: {
+            type: Array,
+            required: true
+        }
+    });
 </script>

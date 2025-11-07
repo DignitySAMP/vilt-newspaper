@@ -40,8 +40,10 @@
     </AppGuestLayout>
 </template>
 <script setup lang="js">
-    import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
+
     import { useForm, usePage, Link } from '@inertiajs/vue3';
+    import AppGuestLayout from '@/layouts/AppGuestLayout.vue';
+    
     import AppButton from '@/components/AppButton.vue';
     import AppInput from '@/components/AppInput.vue';
 

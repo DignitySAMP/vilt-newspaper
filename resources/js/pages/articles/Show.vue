@@ -41,10 +41,11 @@
     </AppLayout>
 </template>
 <script setup lang="js">
-import { Link, usePage } from '@inertiajs/vue3';
-import AppLayout from '@/layouts/AppLayout.vue';
-import AppSeparator from '@/components/AppSeparator.vue'
-import AppButton from '@/components/AppButton.vue';
-import ListComments from '@/pages/comments/Index.vue';
-</script>
+    import { Link, usePage } from '@inertiajs/vue3';
 
+    import AppLayout from '@/layouts/AppLayout.vue';
+    import ListComments from '@/pages/comments/Index.vue';
+
+    import AppSeparator from '@/components/AppSeparator.vue'
+    import AppButton from '@/components/AppButton.vue';
+</script>

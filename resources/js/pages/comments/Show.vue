@@ -29,10 +29,11 @@
 <script setup lang="js">
     import { ref } from 'vue';
     import {usePage } from '@inertiajs/vue3';
-    import AppButton from '@/components/AppButton.vue'
 
     const editComment = ref(false);
     import EditComment from '@/pages/comments/Edit.vue'
+
+    import AppButton from '@/components/AppButton.vue'
 
     const props = defineProps({
         comment: {

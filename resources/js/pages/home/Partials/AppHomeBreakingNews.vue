@@ -36,7 +36,7 @@
 </template>
 <script setup lang="js">
     import { Link } from '@inertiajs/vue3';
-    import AppButton from '@/components/AppButton.vue' // TODO: Make AppButtonLink for viewing threads
+    import AppButton from '@/components/AppButton.vue'
     import AppSeparator from '@/components/AppSeparator.vue';
 
     const props = defineProps({
