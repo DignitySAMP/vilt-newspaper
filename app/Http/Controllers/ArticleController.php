@@ -187,6 +187,10 @@ class ArticleController extends Controller implements HasMiddleware
         if($validate['name'] != $article->title) {
             return back()->withErrors(['name' => 'Confirmation does not match the article title.']);
         }
+        
+        if ($article->image && Storage::disk('public')->exists($article->image)) {
+            Storage::disk('public')->delete($article->image);
+        }
 
         $article->delete();
 
