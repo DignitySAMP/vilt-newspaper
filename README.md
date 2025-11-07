@@ -49,13 +49,14 @@ php artisan storage:link
   <summary>Click to view screenshots</summary>
   <br>
     <p align="center">
-        Authentication
+        Authentication and e-mail template preview
     </p>
     <p align="center">
         <img src=".screenshots/screencapture-localhost-8000-login-2025-11-07-13_51_36.png" width="35%" />
         <img src=".screenshots/screencapture-localhost-8000-register-2025-11-07-13_51_20.png" width="35%" />
         <img src=".screenshots/screencapture-localhost-8000-forgot-password-2025-11-07-13_51_50.png" width="35%" />
         <img src=".screenshots/screencapture-localhost-8000-profile-2025-11-07-13_52_59.png" width="22%" />
+        <img src=".screenshots/email_preview.png" width="25%" />
     </p>
     <p align="center">
         Home Page
