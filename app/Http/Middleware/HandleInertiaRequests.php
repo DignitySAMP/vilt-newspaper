@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Category;
+use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -40,12 +41,16 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => Auth::check() ? Auth::user() : null,
+            'newsletter' => Auth::check() 
+                ? Newsletter::where('user_id', Auth::id())->first() ? true : false
+                : null,
             'app' => [
                 'name' => env('APP_NAME')
             ],
             'categories' => Category::all(),
             'flash' => [
-                'message' => fn () => $request->session()->get('message')
+                'message' => fn () => $request->session()->get('message'),
+                'newsletter' => fn () => $request->session()->get('newsletter'),
             ],
             //
         ];

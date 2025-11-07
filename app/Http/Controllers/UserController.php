@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $query = User::with(['roles'])->select('id', 'name', 'email');
+        $query = User::with(['roles', 'newsletter'])->select('id', 'name', 'email');
 
         if ($request->has('search') && !empty(trim($request->get('search')))) {
             $search = trim($request->get('search'));

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +29,9 @@ Route::group(['middleware' => ['auth', 'verified', 'password.confirm']], functio
         Route::resource('category', CategoryController::class);
         Route::resource('users', UserController::class)->except('show');
         Route::resource('comment', CommentController::class)->only('store', 'update', 'destroy');
+
+        Route::post('newsletter/subscribe', [NewsletterController::class, 'store'])->name('newsletter.subscribe');
+        Route::delete('newsletter/unsubscribe', [NewsletterController::class, 'destroy'])->name('newsletter.unsubscribe');
     });
 });
 

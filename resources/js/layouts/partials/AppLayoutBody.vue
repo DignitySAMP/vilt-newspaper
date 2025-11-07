@@ -3,3 +3,4 @@
         <slot/>
     </main>
 </template>
+<script setup lang="js"/>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -91,7 +92,14 @@ class ArticleController extends Controller implements HasMiddleware
     
         $article->update(['image' => $imagePath]);
 
-        return redirect()->route('article.index')->with('message', 'Article has been created.');
+        $emailsSent = Newsletter::sendToAll(
+            subject: $article->title,
+            content: $article->summary,
+            buttonText: 'Read more',
+            buttonUrl: route('article.show', $article->id)
+        );
+
+        return redirect()->route('article.index')->with('message', "Article has been created. {$emailsSent} emails have been sent");
     }
 
     /**

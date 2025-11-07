@@ -32,6 +32,9 @@
                             </div>
                             )
                         </div>
+                        <span class="text-xs" :class="user.newsletter ? 'text-green-600' : 'text-red-600'">
+                            {{ user.newsletter ? 'Subscribed to the newsletter' : 'Not subscribed to the newsletter' }}
+                        </span>
                     </div>
                     <span class="text-sm text-gray-600">
                         {{ user.email }}
