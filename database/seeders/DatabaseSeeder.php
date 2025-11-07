@@ -46,9 +46,9 @@ class DatabaseSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         
         $admin = User::factory()->create([
-            'name' => 'Webteam Datalink',
-            'email' => 'webteam@datalink.be',
-            'password' => Hash::make('webteam@datalink.be')
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => Hash::make('test@example.com')
         ]);
         $admin->assignrole(['writer', 'publisher', 'administrator']);
         
